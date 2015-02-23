@@ -10,14 +10,14 @@
 	<string>AddMusic</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5B1AF9D6F0935DE020AAB9FB221A44FCD745CA04</key>
+		<key>3DA7DEF056C3C60BA155B11BB1BABA2DEDA86FAE</key>
 		<string>https://github.com/stevedavies/Add-Music.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AddMusic.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5B1AF9D6F0935DE020AAB9FB221A44FCD745CA04</key>
+		<key>3DA7DEF056C3C60BA155B11BB1BABA2DEDA86FAE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5B1AF9D6F0935DE020AAB9FB221A44FCD745CA04</string>
+	<string>3DA7DEF056C3C60BA155B11BB1BABA2DEDA86FAE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5B1AF9D6F0935DE020AAB9FB221A44FCD745CA04</string>
+			<string>3DA7DEF056C3C60BA155B11BB1BABA2DEDA86FAE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AddMusic</string>
 		</dict>
