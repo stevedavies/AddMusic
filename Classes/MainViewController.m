@@ -214,7 +214,7 @@ void audioRouteChangeListenerCallback (
             
             // create a playlist here
             //PartiallyPlayedList
-            MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems]; /////////////// changed type here
+            MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems]; //--------->>>>>>>>>> changed type here <<<<<<<<<-----------
             
             NSLog(@"Number of items: %d",itemsCount);
             NSLog(@"Partially Palyed: %d", partiallyPlayedCount);
