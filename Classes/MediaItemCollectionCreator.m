@@ -1,22 +1,16 @@
 //
-//  MediaLibraryStats.m
+//  MediaItemCollectionCreator.m
 //  AddMusic
 //
-//  Created by Steve Davies on 2/26/15.
+//  Created by Steve Davies MXTB on 2/27/15.
 //
 //
 
-#import "MediaLibraryStats.h"
+#import "MediaItemCollectionCreator.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@implementation MediaLibraryStats
-
-@synthesize items;
-@synthesize songs;
-@synthesize podcasts;
-@synthesize partiallyPlayedPodcasts;
-
-- (void) CalculateStats{
+@implementation MediaItemCollectionCreator
++ (MPMediaItemCollection*) MakePlaylist{
     int itemsCount=0;
     int partiallyPlayedCount=0;
     
@@ -53,8 +47,13 @@
         itemsCount++;
     }
     
+    // create a playlist here
+    //PartiallyPlayedList
+    MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems]; //--------->>>>>>>>>> changed type here <<<<<<<<<-----------
     
     NSLog(@"Number of items: %d",itemsCount);
     NSLog(@"Partially Palyed: %d", partiallyPlayedCount);
+    return PartiallyPlayedList;
 }
+
 @end

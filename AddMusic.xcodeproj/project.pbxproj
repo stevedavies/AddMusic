@@ -25,7 +25,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		580748730FAA6E1600373EAF /* MusicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580748710FAA6E1600373EAF /* MusicTableViewController.m */; };
 		58D3B0100F9FE329006F1B20 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D3B00F0F9FE329006F1B20 /* MediaPlayer.framework */; };
-		F493010D1AA0029E009B5669 /* CreateMPMediaItemCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = F493010C1AA0029E009B5669 /* CreateMPMediaItemCollection.m */; };
+		D5B86C961AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B86C951AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m */; };
 		F49301101AA0068B009B5669 /* MediaLibraryStats.m in Sources */ = {isa = PBXBuildFile; fileRef = F493010F1AA0068B009B5669 /* MediaLibraryStats.m */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +54,8 @@
 		580748700FAA6E1600373EAF /* MusicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewController.h; sourceTree = "<group>"; };
 		580748710FAA6E1600373EAF /* MusicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewController.m; sourceTree = "<group>"; };
 		58D3B00F0F9FE329006F1B20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		F493010B1AA0029E009B5669 /* CreateMPMediaItemCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMPMediaItemCollection.h; sourceTree = "<group>"; };
-		F493010C1AA0029E009B5669 /* CreateMPMediaItemCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMPMediaItemCollection.m; sourceTree = "<group>"; };
+		D5B86C941AA0FFA2004FE4E0 /* MediaItemCollectionCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemCollectionCreator.h; sourceTree = "<group>"; };
+		D5B86C951AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemCollectionCreator.m; sourceTree = "<group>"; };
 		F493010E1AA0068B009B5669 /* MediaLibraryStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaLibraryStats.h; sourceTree = "<group>"; };
 		F493010F1AA0068B009B5669 /* MediaLibraryStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaLibraryStats.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,8 +84,8 @@
 				1D3623250D0F684500981E51 /* AddMusicAppDelegate.m */,
 				0A735D510FACBA430057280A /* MainViewController.h */,
 				0A735D520FACBA430057280A /* MainViewController.m */,
-				F493010B1AA0029E009B5669 /* CreateMPMediaItemCollection.h */,
-				F493010C1AA0029E009B5669 /* CreateMPMediaItemCollection.m */,
+				D5B86C941AA0FFA2004FE4E0 /* MediaItemCollectionCreator.h */,
+				D5B86C951AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m */,
 				F493010E1AA0068B009B5669 /* MediaLibraryStats.h */,
 				F493010F1AA0068B009B5669 /* MediaLibraryStats.m */,
 				580748700FAA6E1600373EAF /* MusicTableViewController.h */,
@@ -224,9 +224,9 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AddMusicAppDelegate.m in Sources */,
+				D5B86C961AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m in Sources */,
 				F49301101AA0068B009B5669 /* MediaLibraryStats.m in Sources */,
 				580748730FAA6E1600373EAF /* MusicTableViewController.m in Sources */,
-				F493010D1AA0029E009B5669 /* CreateMPMediaItemCollection.m in Sources */,
 				0A735D530FACBA430057280A /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
