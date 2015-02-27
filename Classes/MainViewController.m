@@ -640,11 +640,11 @@ void audioRouteChangeListenerCallback (
 
 	// Configure a timer to change the background color. The changing color represents an 
 	//		application that is doing something else while iPod music is playing.
-	[self setBackgroundColorTimer: [NSTimer scheduledTimerWithTimeInterval: 3.5
+	/*[self setBackgroundColorTimer: [NSTimer scheduledTimerWithTimeInterval: 3.5
 																	target: self
 																  selector: @selector (updateBackgroundColor)
 																  userInfo: nil
-																   repeats: YES]];
+																   repeats: YES]];*/
 }
 
 // Invoked by the backgroundColorTimer.
