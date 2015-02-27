@@ -28,6 +28,7 @@ to and manages user interaction.
 	NSURL						*soundFileURL;
 	IBOutlet UIButton			*appSoundButton;
 	IBOutlet UIButton			*addOrShowMusicButton;
+    IBOutlet UIButton           *CreatePlaylistAndPlayButton;
 	BOOL						interruptedOnPlayback;
 	BOOL						playing ;
 
@@ -55,6 +56,7 @@ to and manages user interaction.
 @property (nonatomic, retain)	NSURL					*soundFileURL;
 @property (nonatomic, retain)	IBOutlet UIButton		*appSoundButton;
 @property (nonatomic, retain)	IBOutlet UIButton		*addOrShowMusicButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *CreatePlaylistAndPlayButton;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
 

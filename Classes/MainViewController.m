@@ -103,6 +103,7 @@ void audioRouteChangeListenerCallback (
 @synthesize addOrShowMusicButton;		// the button for invoking the media item picker. if the user has already 
 										//		specified a media item collection, the title changes to "Show Music" and
 										//		the button invokes a table view that shows the specified collection
+@synthesize CreatePlaylistAndPlayButton;
 @synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
 @synthesize soundFileURL;				// The path to the application sound
 @synthesize interruptedOnPlayback;		// A flag indicating whether or not the application was interrupted during 
@@ -127,7 +128,18 @@ void audioRouteChangeListenerCallback (
 	}
 }
 
-// If there is no selected media item collection, display the media item picker. If there's 
+// create a playslit of partially played itmes and start playback
+- (IBAction) CreatePlaylistAndPlay: (id) sender {
+    //////////////////////
+    MPMediaItemCollection *PartiallyPlayedList = [ MediaItemCollectionCreator MakePlaylist];
+    //////////////////////
+    
+    [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
+    [self setPlayedMusicOnce: YES];
+    [musicPlayer play];
+}
+
+// If there is no selected media item collection, display the media item picker. If there's
 // already a selected collection, display the list of selected songs.
 - (IBAction) AddMusicOrShowMusic: (id) sender {    
 
@@ -177,7 +189,6 @@ void audioRouteChangeListenerCallback (
             // LOOK
             
             //////////////////////
-            //CreateMPMediaItemCollection *Foo;
             MPMediaItemCollection *PartiallyPlayedList = [ MediaItemCollectionCreator MakePlaylist];
             //////////////////////
             
