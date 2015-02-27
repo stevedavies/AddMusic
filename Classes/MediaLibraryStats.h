@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MediaLibraryStats : NSObject{}
+@interface MediaLibraryStats : NSObject
 
 @property (nonatomic, readonly ) int items;
 @property (nonatomic, readwrite) int songs;

@@ -15,8 +15,7 @@
 @synthesize songs;
 @synthesize podcasts;
 @synthesize partiallyPlayedPodcasts;
-@end
 
-- (void) CalculateStats: (void){
-    
+- (void) CalculateStats{
 }
+@end
