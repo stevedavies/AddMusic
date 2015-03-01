@@ -10,6 +10,7 @@ to and manages user interaction.
 #import "MainViewController.h"
 #import <Foundation/Foundation.h>
 #import "MediaItemCollectionCreator.h"
+#import "MediaLibraryStats.h"
 
 #pragma mark Audio session callbacks_______________________
 
@@ -103,7 +104,13 @@ void audioRouteChangeListenerCallback (
 @synthesize addOrShowMusicButton;		// the button for invoking the media item picker. if the user has already 
 										//		specified a media item collection, the title changes to "Show Music" and
 										//		the button invokes a table view that shows the specified collection
+//new buttons
 @synthesize CreatePlaylistAndPlayButton;
+@synthesize Plus30Button;
+@synthesize Minus30Button;
+@synthesize MoveZeroButton;
+@synthesize StatsButton;
+
 @synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
 @synthesize soundFileURL;				// The path to the application sound
 @synthesize interruptedOnPlayback;		// A flag indicating whether or not the application was interrupted during 
@@ -137,7 +144,52 @@ void audioRouteChangeListenerCallback (
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [self setPlayedMusicOnce: YES];
     [musicPlayer play];
+    [musicPlayer skipToNextItem];
+    [musicPlayer skipToPreviousItem];
+    [musicPlayer skipToBeginning];
+    [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
+    
 }
+
+// move playback position back 30 seconds
+- (IBAction) Minus30sec: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-30)];
+    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+}
+
+// move playback position forward 30 seconds
+- (IBAction) Plus30sec: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+30)];
+    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+}
+
+// move playback position to beginning
+- (IBAction) MoveZero: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:(0)];
+    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+}
+
+// move playback position to END
+- (IBAction) Skip: (id) sender {
+    MPMediaItem  *item =[musicPlayer nowPlayingItem];
+    NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+    double BookmarkValue = [timevalue doubleValue];
+    [musicPlayer setCurrentPlaybackTime:(BookmarkValue)];
+    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Setting bookmark to END:%f",BookmarkValue);
+}
+
+// calculate stats
+- (IBAction) Stats: (id) sender {
+    MediaLibraryStats *CurrentStats = [[MediaLibraryStats alloc] init];
+    [CurrentStats CalculateStats];
+    NSLog(@"PlaylistsCount:%d",[CurrentStats PlaylistsCount]);
+    NSLog(@"ItemsCount:%d",[CurrentStats ItemsCount]);
+    NSLog(@"SongsCount:%d",[CurrentStats SongsCount]);
+    NSLog(@"PodcastsCount:%d",[CurrentStats PodcastsCount]);
+    NSLog(@"PartiallyPlayedPodcastsCount:%d",[CurrentStats PartiallyPlayedPodcastsCount]);
+}
+
 
 // If there is no selected media item collection, display the media item picker. If there's
 // already a selected collection, display the list of selected songs.

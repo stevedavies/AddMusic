@@ -29,6 +29,10 @@ to and manages user interaction.
 	IBOutlet UIButton			*appSoundButton;
 	IBOutlet UIButton			*addOrShowMusicButton;
     IBOutlet UIButton           *CreatePlaylistAndPlayButton;
+    IBOutlet UIButton           *Minus30Button;
+    IBOutlet UIButton           *Plus30Button;
+    IBOutlet UIButton           *MoveZeroButton;
+    IBOutlet UIButton           *StatsButton;
 	BOOL						interruptedOnPlayback;
 	BOOL						playing ;
 
@@ -57,6 +61,10 @@ to and manages user interaction.
 @property (nonatomic, retain)	IBOutlet UIButton		*appSoundButton;
 @property (nonatomic, retain)	IBOutlet UIButton		*addOrShowMusicButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *CreatePlaylistAndPlayButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *Minus30Button;
+@property (nonatomic, retain)   IBOutlet UIButton       *Plus30Button;
+@property (nonatomic, retain)   IBOutlet UIButton       *MoveZeroButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *StatsButton;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
 
