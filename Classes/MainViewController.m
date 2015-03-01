@@ -141,6 +141,10 @@ void audioRouteChangeListenerCallback (
     MPMediaItemCollection *PartiallyPlayedList = [ MediaItemCollectionCreator MakePlaylist];
     //////////////////////
     
+    
+    //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
+    
+    //[self.delegate updatePlayerQueueWithMediaCollection: PartiallyPlayedList];
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [self setPlayedMusicOnce: YES];
     [musicPlayer play];

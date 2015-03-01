@@ -56,9 +56,9 @@
         //[PartiallyPlayedList MPMediaPlaylistPropertyName:@"Test"];
     }
     
-    printf("%s", [[NSString stringWithFormat:@"Number of songs: %d",SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"Number of items: %d",ItemsCount] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"Number of items: %d",PodcastsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"Number of songs: %d",SongsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"Number of Podcasts: %d",PodcastsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"Partially Palyed podcasts: %d", PartiallyPlayedPodcastsCount] UTF8String]);
     
     // enumerate playlists
@@ -78,5 +78,19 @@
         }*/
     }
     printf("%s", [[NSString stringWithFormat:@"Playlissts: %d", PlaylistsCount] UTF8String]);
+    
+    //enumerate podcast titles -- NOT working, ha  -- LEFT OFF HERE  -- LOOK HERE
+   /*
+    MPMediaQuery *myPodcastTitlesQuery = [MPMediaQuery podcastsQuery];
+    int TitlesCount =[[myPodcastTitlesQuery collectionSections] count];
+    NSArray *myPodcastTitlesArray = [myPodcastTitlesQuery collectionSections];
+    
+    
+    for (MPMediaQuerySection *PodcastTitle in myPodcastTitlesQuery)
+    {
+        printf("%s", [[NSString stringWithFormat:@"Number of items: %d",1] UTF8String]);
+  
+    }
+    */
 }
 @end
