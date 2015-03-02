@@ -30,14 +30,15 @@
     NSArray *itemsFromGenericQuery = [everything items];
     for (MPMediaItem *item in itemsFromGenericQuery) {
         ItemsCount++;
+        
+        int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
-        NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
-        double BookmarkValue = [itemBookmarkTime doubleValue];
-        NSString *itemPlaybackDuration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        double PlaybackDuration = [[item valueForProperty:MPMediaItemPropertyPlaybackDuration]doubleValue];
         NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
         NSString *itemType = [item valueForProperty:MPMediaItemPropertyMediaType];
-        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
+        double BookmarkValue = [[item valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
+        
         if (TypeValue == 0){
             SongsCount++;
         }
@@ -46,7 +47,7 @@
             if  (BookmarkValue>0){
                 //NSLog (@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount);
                 //printf("\nType:%s Title:%s-%s Bookmark:%s Duration:%s PlayCount:%s",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount);
-                printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
+                printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 // ADD itme to MutableArray here
                 [PlaylistItems addObject:item];
                 PartiallyPlayedPodcastsCount++;
@@ -67,7 +68,7 @@
     PlaylistsCount=[playlists count];
     for (MPMediaPlaylist *playlist in playlists)
     {
-        NSLog (@"%@", [playlist valueForProperty: MPMediaPlaylistPropertyName]);
+        //NSLog (@"%@", [playlist valueForProperty: MPMediaPlaylistPropertyName]);
         NSArray *songslist = [playlist items];
         NSLog(@"%@,Songs:%d",[playlist name],[songslist count]);
         /*for (MPMediaItem *song in songslist)
@@ -79,14 +80,86 @@
     }
     printf("%s", [[NSString stringWithFormat:@"Playlissts: %d", PlaylistsCount] UTF8String]);
     
-    //enumerate podcast titles -- NOT working, ha  -- LEFT OFF HERE  -- LOOK HERE
-   /*
-    MPMediaQuery *myPodcastTitlesQuery = [MPMediaQuery podcastsQuery];
-    int TitlesCount =[[myPodcastTitlesQuery collectionSections] count];
-    NSArray *myPodcastTitlesArray = [myPodcastTitlesQuery collectionSections];
     
     
-    for (MPMediaQuerySection *PodcastTitle in myPodcastTitlesQuery)
+    //enumerate podcast Names -- NOT working, ha  -- LEFT OFF HERE  -- LOOK HERE
+   
+    MPMediaQuery *myPodcastsQuery = [MPMediaQuery podcastsQuery];
+    
+    /* does not work
+    int itemcount = [myPodcastsQuery count];
+    printf("%s", [[NSString stringWithFormat:@"=Query item count:%d", itemcount] UTF8String]);
+    */
+    
+    // enumerating items in itemsSections
+    NSArray *itemSections=[myPodcastsQuery itemSections];
+    NSArray *myPodcastsQueryItems=[myPodcastsQuery items];
+    for (MPMediaQuerySection *section in itemSections)
+    {
+        NSRange R=[section range];
+        int Location = R.location;
+        int Length=R.length;
+        NSString *Title = [section title];
+        printf("%s", [[NSString stringWithFormat:@"\nIS Title=%@ Location=%d Range=%d", Title,Location,Length] UTF8String]);
+    }
+    for (MPMediaItem *item in myPodcastsQueryItems)
+    {
+        NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
+        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        printf("%s", [[NSString stringWithFormat:@"\n%@-%@",itemAlbumTitle, itemTitle] UTF8String]);
+        int i=0;
+        i++;
+    }
+
+    
+    // enumerating collections in collectionSections
+    NSArray *sections=[myPodcastsQuery collectionSections];
+    for (MPMediaQuerySection *section in sections)
+    {
+        NSRange R=[section range];
+        int Location = R.location;
+        int Length=R.length;
+        NSString *Title = [section title];
+        printf("%s", [[NSString stringWithFormat:@"\nCS Title=%@ Location=%d Range=%d", Title,Location,Length] UTF8String]);
+        
+        /* does not work
+        for (MPMediaItem *item in section)
+        {
+            NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
+            printf("%s", [[NSString stringWithFormat:@"\nTitle=%@", itemTitle] UTF8String]);
+        }*/
+        
+        
+    }
+    
+    
+        //NSArray *items=[myPodcastsQuery itemSections];
+    
+    
+    
+    
+    
+    
+    /*
+    NSArray *PodcastNames = [myPodcastsQuery collections];
+    
+    for (MPMediaItemCollection *collection in PodcastNames)
+    {
+        printf("%s", [[NSString stringWithFormat:@"\nA:"] UTF8String]);
+        MPMediaItemCollection *Podcast = collection;
+        
+        for (MPMediaEntity *item in Podcast)
+        {
+            printf("%s", [[NSString stringWithFormat:@"\nB:"] UTF8String]);
+            NSString *itemAlbumTitle = [item valueForProperty: MPMediaItemPropertyTitle];
+        }
+    }
+    
+    int TitlesCount =[[PodcastNames collectionSections] count];
+    */
+    
+    /*
+    for (MPMediaQuerySection *PodcastTitle in myPodcastsQuery)
     {
         printf("%s", [[NSString stringWithFormat:@"Number of items: %d",1] UTF8String]);
   
