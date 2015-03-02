@@ -82,26 +82,66 @@
     
     
     
-    //enumerate podcast Names -- NOT working, ha  -- LEFT OFF HERE  -- LOOK HERE
+    //enumerate podcast Names -- almost working, only get first one of each letter  -- LEFT OFF HERE  -- LOOK HERE
    
-    MPMediaQuery *myPodcastsQuery = [MPMediaQuery podcastsQuery];
+    //currently start whole process with built in podcastsQuery
     
-    /* does not work
-    int itemcount = [myPodcastsQuery count];
-    printf("%s", [[NSString stringWithFormat:@"=Query item count:%d", itemcount] UTF8String]);
-    */
     
-    // enumerating items in itemsSections
+    // MPMediaQuery *myPodcastsQuery = [MPMediaQuery podcastsQuery];
+    
+    // try building custome query that is an album query filtered for podcasts <<<<<<<------
+    //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
+    
+    ////////////////////////////////
+    MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
+    
+    [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
+                                predicateWithValue: 2
+                                forProperty: MPMediaItemPropertyMediaType]];
+    // Sets the grouping type for the media query
+    [myPodcastsQuery setGroupingType: MPMediaGroupingAlbum];
+    
+    NSArray *albums = [myPodcastsQuery collections];
+    for (MPMediaItemCollection *album in albums) {
+        MPMediaItem *representativeItem = [album representativeItem];
+        NSString *artistName =
+        [representativeItem valueForProperty: MPMediaItemPropertyArtist];
+        NSString *albumName =
+        [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
+        NSLog (@"%@ by %@", albumName, artistName);
+        
+        NSArray *songs = [album items];
+        for (MPMediaItem *song in songs) {
+            NSString *songTitle =
+            [song valueForProperty: MPMediaItemPropertyTitle];
+            NSLog (@"\t\t%@", songTitle);
+        }
+    }
+    ////////////////////////////////
+    
+    
+    // enumerating items in itemsSections of PodcastsQuery which groups and sorts
+    // looking to build the list of podcast names
     NSArray *itemSections=[myPodcastsQuery itemSections];
     NSArray *myPodcastsQueryItems=[myPodcastsQuery items];
     for (MPMediaQuerySection *section in itemSections)
     {
+        NSString *buffer = [[section representativeItem] valueForProperty:MPMediaItemPropertyAlbumTitle];
+        //printf("%s", [[NSString stringWithFormat:@"\n%@", buffer] UTF8String]);
         NSRange R=[section range];
         int Location = R.location;
         int Length=R.length;
         NSString *Title = [section title];
         printf("%s", [[NSString stringWithFormat:@"\nIS Title=%@ Location=%d Range=%d", Title,Location,Length] UTF8String]);
+        
+        MPMediaItem *currentItem = [myPodcastsQueryItems objectAtIndex:(Location)];
+        
+        NSString *itemTitle = [currentItem valueForProperty: MPMediaItemPropertyTitle];
+        NSString *itemAlbumTitle = [currentItem valueForProperty:MPMediaItemPropertyAlbumTitle];
+        printf("%s", [[NSString stringWithFormat:@"\n%@-%@",itemAlbumTitle, itemTitle] UTF8String]);
     }
+    
+    /*// this block enumerates all items in myPodcastsQueryItems
     for (MPMediaItem *item in myPodcastsQueryItems)
     {
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
@@ -109,7 +149,7 @@
         printf("%s", [[NSString stringWithFormat:@"\n%@-%@",itemAlbumTitle, itemTitle] UTF8String]);
         int i=0;
         i++;
-    }
+    }*/
 
     
     // enumerating collections in collectionSections
@@ -128,17 +168,10 @@
             NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
             printf("%s", [[NSString stringWithFormat:@"\nTitle=%@", itemTitle] UTF8String]);
         }*/
-        
-        
     }
     
     
         //NSArray *items=[myPodcastsQuery itemSections];
-    
-    
-    
-    
-    
     
     /*
     NSArray *PodcastNames = [myPodcastsQuery collections];
