@@ -109,9 +109,10 @@
         //representativeItem.album
         NSString *albumTitle =
         [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
-        printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@", albumTitle] UTF8String]);
+        
         
         NSArray *songs = [album items];
+        printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %d", albumTitle, [songs count]] UTF8String]);
         /*
          // print each episode
         for (MPMediaItem *song in songs) {
@@ -122,6 +123,7 @@
          */
     }
     printf("%s", [[NSString stringWithFormat:@"\nPodcasts Count: %d", [albums count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcasts Count: %d", [myPodcastsQuery.items count]] UTF8String]);
     ////////////////////////////////
     
     
