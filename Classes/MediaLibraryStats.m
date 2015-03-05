@@ -26,8 +26,8 @@
     MPMediaQuery *everything = [[MPMediaQuery alloc] init];
     
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
-    //NSLog(@"Logging items from a generic query...");
     NSArray *itemsFromGenericQuery = [everything items];
+    printf("%s", [[NSString stringWithFormat:@"\n\nLooking at entire library..."] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\n\nTypeValue 2, Partially Played:"] UTF8String]);
     for (MPMediaItem *item in itemsFromGenericQuery) {
         ItemsCount++;
@@ -47,16 +47,12 @@
         if (TypeValue == 2) {
             PodcastsCount++;
             if  (BookmarkValue>0){
-                //NSLog (@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount);
-                //printf("\nType:%s Title:%s-%s Bookmark:%s Duration:%s PlayCount:%s",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount);
                 printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 // ADD itme to MutableArray here
                 [PlaylistItems addObject:item];
                 PartiallyPlayedPodcastsCount++;
             }
         };
-        
-        //[PartiallyPlayedList MPMediaPlaylistPropertyName:@"Test"];
     }
     
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",ItemsCount] UTF8String]);
@@ -74,6 +70,7 @@
         //NSLog (@"%@", [playlist valueForProperty: MPMediaPlaylistPropertyName]);
         NSArray *songslist = [playlist items];
         printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],[songslist count]] UTF8String]);
+        // enumerates each item
         /*for (MPMediaItem *song in songslist)
         {
             NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
@@ -85,12 +82,9 @@
     
 
     
-    
-    // MPMediaQuery *myPodcastsQuery = [MPMediaQuery podcastsQuery];
-    
-    // try building custom query that is an album query filtered for podcasts <<<<<<<------
-    //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
-    
+    //custom query that is an album query filtered for podcasts <<<<<<<------
+    // Duplicates ---->>>> MPMediaQuery *myPodcastsQuery = [MPMediaQuery podcastsQuery]; with extra controls
+
     ////////////////////////////////
     printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
     MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
@@ -104,6 +98,8 @@
                                           predicateWithValue: @"EconTalk"
                                           forProperty: MPMediaItemPropertyAlbumTitle
                                         comparisonType: MPMediaPredicateComparisonContains]];
+    //Alternate method - create predicates, add to set....
+    //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
     
     // Sets the grouping type for the media query
     [myPodcastsQuery setGroupingType: MPMediaGroupingAlbum];
@@ -133,80 +129,5 @@
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     ////////////////////////////////
     
-    // from here down  is discarded trys
-    /*
-    // enumerating items in itemsSections of PodcastsQuery which groups and sorts
-    // looking to build the list of podcast names
-    NSArray *itemSections=[myPodcastsQuery itemSections];
-    NSArray *myPodcastsQueryItems=[myPodcastsQuery items];
-    for (MPMediaQuerySection *section in itemSections)
-    {
-        NSString *buffer = @"";
-        printf("%s", [[NSString stringWithFormat:@"\n%@", buffer] UTF8String]);
-        
-        NSRange R=[section range];
-        int Location = R.location;
-        int Length=R.length;
-        NSString *Title = [section title];
-        printf("%s", [[NSString stringWithFormat:@"\nIS Title=%@ Location=%d Range=%d", Title,Location,Length] UTF8String]);
-        
-        MPMediaItem *currentItem = [myPodcastsQueryItems objectAtIndex:(Location)];
-        
-        NSString *itemTitle = [currentItem valueForProperty: MPMediaItemPropertyTitle];
-        NSString *itemAlbumTitle = [currentItem valueForProperty:MPMediaItemPropertyAlbumTitle];
-        printf("%s", [[NSString stringWithFormat:@"\n%@-%@",itemAlbumTitle, itemTitle] UTF8String]);
-    }
-    */
-     
-    /*// this block enumerates all items in myPodcastsQueryItems
-    for (MPMediaItem *item in myPodcastsQueryItems)
-    {
-        NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
-        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        printf("%s", [[NSString stringWithFormat:@"\n%@-%@",itemAlbumTitle, itemTitle] UTF8String]);
-        int i=0;
-        i++;
-    }*/
-
-    /*
-    // enumerating collections in collectionSections
-    NSArray *sections=[myPodcastsQuery collectionSections];
-    for (MPMediaQuerySection *section in sections)
-    {
-        NSRange R=[section range];
-        int Location = R.location;
-        int Length=R.length;
-        NSString *Title = [section title];
-        printf("%s", [[NSString stringWithFormat:@"\nCS Title=%@ Location=%d Range=%d", Title,Location,Length] UTF8String]);
-    }
-    */
-    
-        //NSArray *items=[myPodcastsQuery itemSections];
-    
-    /*
-    NSArray *PodcastNames = [myPodcastsQuery collections];
-    
-    for (MPMediaItemCollection *collection in PodcastNames)
-    {
-        printf("%s", [[NSString stringWithFormat:@"\nA:"] UTF8String]);
-        MPMediaItemCollection *Podcast = collection;
-        
-        for (MPMediaEntity *item in Podcast)
-        {
-            printf("%s", [[NSString stringWithFormat:@"\nB:"] UTF8String]);
-            NSString *itemAlbumTitle = [item valueForProperty: MPMediaItemPropertyTitle];
-        }
-    }
-    
-    int TitlesCount =[[PodcastNames collectionSections] count];
-    */
-    
-    /*
-    for (MPMediaQuerySection *PodcastTitle in myPodcastsQuery)
-    {
-        printf("%s", [[NSString stringWithFormat:@"Number of items: %d",1] UTF8String]);
-  
-    }
-    */
 }
 @end
