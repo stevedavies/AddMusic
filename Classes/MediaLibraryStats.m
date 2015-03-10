@@ -92,12 +92,14 @@
     // see MediaLibraryStats.h for a list of media item properties
     [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
                                           predicateWithValue: [NSNumber numberWithInteger:MPMediaTypePodcast] //MPMediaTypePodcast
-                                          forProperty: MPMediaItemPropertyMediaType]];
+                                          forProperty: MPMediaItemPropertyMediaType
+                                          comparisonType: MPMediaPredicateComparisonEqualTo]];
     
     [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
                                           predicateWithValue: @"EconTalk"
                                           forProperty: MPMediaItemPropertyAlbumTitle
                                         comparisonType: MPMediaPredicateComparisonContains]];
+
     //Alternate method - create predicates, add to set....
     //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
     
