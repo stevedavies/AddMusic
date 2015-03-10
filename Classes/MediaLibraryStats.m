@@ -40,7 +40,7 @@
         NSString *itemType = [item valueForProperty:MPMediaItemPropertyMediaType];
         double BookmarkValue = [[item valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
         
-        if (TypeValue == 0){
+        if (TypeValue == 1){
             SongsCount++;
         }
         
