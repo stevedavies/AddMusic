@@ -91,7 +91,7 @@
     
     // see MediaLibraryStats.h for a list of media item properties
     [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
-                                          predicateWithValue: [NSNumber numberWithInteger:MPMediaTypePodcast] //MPMediaTypePodcast
+                                          predicateWithValue: [NSNumber numberWithInteger:MPMediaTypePodcast]
                                           forProperty: MPMediaItemPropertyMediaType
                                           comparisonType: MPMediaPredicateComparisonEqualTo]];
     
