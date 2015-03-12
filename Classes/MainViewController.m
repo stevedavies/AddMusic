@@ -147,12 +147,25 @@ void audioRouteChangeListenerCallback (
     //[self.delegate updatePlayerQueueWithMediaCollection: PartiallyPlayedList];
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [self setPlayedMusicOnce: YES];
-    [musicPlayer play];
-    [musicPlayer skipToNextItem];
-    [musicPlayer skipToPreviousItem];
-    [musicPlayer skipToBeginning];
     [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
+    [musicPlayer play];
+    //[musicPlayer skipToNextItem];
+    //[musicPlayer skipToPreviousItem];
+    //[musicPlayer skipToBeginning];
     
+    
+}
+
+// move playback position back 30 seconds
+- (IBAction) PP: (id) sender {
+    [musicPlayer skipToPreviousItem];
+    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+}
+
+// move playback position back 30 seconds
+- (IBAction) NN: (id) sender {
+    [musicPlayer skipToNextItem];
+    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position back 30 seconds

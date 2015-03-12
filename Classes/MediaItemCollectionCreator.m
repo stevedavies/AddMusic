@@ -11,8 +11,11 @@
 
 @implementation MediaItemCollectionCreator
 + (MPMediaItemCollection*) MakePlaylist{
-    int itemsCount=0;
+    int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
+    int PlaylistItemsCount=0;
+    int PlaylistsCount=0;
+    int SongsCount=0;
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
     
     //MPMediaQuery *everything = [[MPMediaQuery alloc] init];
@@ -53,18 +56,50 @@
             // ADD itme to MutableArray here
             [PlaylistItems addObject:item];
             partiallyPlayedCount++;
+            PlaylistItemsCount++;
         };
-        itemsCount++;
+        PodcastQueryItemsCount++;
     }
     
-    // do the same for some music items
+    // now select some music items
+    // consider changing strategy to match podcast
     
+    // enumerate playlists
+    MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
+    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current PlaylistQuery:"] UTF8String]);
+    
+    NSArray *playlists = [myPlaylistsQuery collections];
+    PlaylistsCount=[playlists count];
+    printf("%s", [[NSString stringWithFormat:@"\nPlaylist Information:"] UTF8String]);
+    for (MPMediaPlaylist *playlist in playlists)
+    {
+        printf("%s", [[NSString stringWithFormat:@"\nPlaylists Name: %@", [playlist valueForProperty: MPMediaPlaylistPropertyName]] UTF8String]);
+
+        NSArray *songslist = [playlist items];
+        SongsCount =[songslist count];
+        printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],SongsCount] UTF8String]);
+        // match on Ride Music 2    <<<<<-----
+        // enumerates each item
+        if ([[playlist name]  isEqual: @"Ride Music 2"])
+        {
+            for (MPMediaItem *song in songslist)
+            {
+                NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+                printf("%s", [[NSString stringWithFormat:@"\n    Song:%@",songTitle] UTF8String]);
+                [PlaylistItems addObject:song];
+                PlaylistItemsCount++;
+            }
+        }
+    }
+    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
     
     // create a playlist here   PartiallyPlayedList
     MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
     
-    printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",itemsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);
     return PartiallyPlayedList;
 }
 

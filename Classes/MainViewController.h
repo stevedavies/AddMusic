@@ -33,6 +33,8 @@ to and manages user interaction.
     IBOutlet UIButton           *Plus30Button;
     IBOutlet UIButton           *MoveZeroButton;
     IBOutlet UIButton           *StatsButton;
+    IBOutlet UIButton           *nnButton;
+    IBOutlet UIButton           *ppButton;
 	BOOL						interruptedOnPlayback;
 	BOOL						playing ;
 
@@ -65,6 +67,8 @@ to and manages user interaction.
 @property (nonatomic, retain)   IBOutlet UIButton       *Plus30Button;
 @property (nonatomic, retain)   IBOutlet UIButton       *MoveZeroButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *StatsButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *nnButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *ppButton;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
 
