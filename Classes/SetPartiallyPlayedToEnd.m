@@ -7,9 +7,11 @@
 //
 
 #import "SetPartiallyPlayedToEnd.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation SetPartiallyPlayedToEnd
-
++ (void)ClearPartiallyPlayed{
+NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
 ////////////////////////////////
 printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
 MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
@@ -55,7 +57,7 @@ for (MPMediaItemCollection *album in albums) {
         if  (BookmarkValue>0){
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
             //set song to played......somehow
-            [PlaylistItems addObject:item];
+            [PlaylistItems addObject:song];
             // create a new class for this
             MPMusicPlayerController *musicplayer = [MPMusicPlayerController init];
             
@@ -70,5 +72,5 @@ printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %d", [albums 
 printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
 printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
 ////////////////////////////////
-
+}
 @end
