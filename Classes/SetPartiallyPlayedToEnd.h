@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface SetPartiallyPlayedToEnd : NSObject
-+ (void)ClearPartiallyPlayed;
+
 @end
