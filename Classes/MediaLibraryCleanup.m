@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @implementation MediaLibraryCleanup
-+ (void)ClearPartiallyPlayed{
++ (MPMediaItemCollection*)ClearPartiallyPlayed{
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
     ////////////////////////////////
     printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
@@ -23,7 +23,7 @@
                                           comparisonType: MPMediaPredicateComparisonEqualTo]];
     
     [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
-                                          predicateWithValue: @"EconTalk"
+                                          predicateWithValue: @"Bloomberg"
                                           forProperty: MPMediaItemPropertyAlbumTitle
                                           comparisonType: MPMediaPredicateComparisonContains]];
     
@@ -56,21 +56,18 @@
             double BookmarkValue = [[song valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
             if  (BookmarkValue>0){
                 printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
-                //set song to played......somehow
+                //set song to played
                 [PlaylistItems addObject:song];
                 // create a new class for this
-                MPMusicPlayerController *musicplayer = [MPMusicPlayerController init];
-                
-                
             }
-            
-            printf("%s", [[NSString stringWithFormat:@"\n   Episode: %@", songTitle] UTF8String]);
         }
         
     }
     printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %d", [albums count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
+    MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    return PartiallyPlayedList;
     ////////////////////////////////
 }
 

@@ -93,14 +93,14 @@
     }
     printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
     
-    // create a playlist here   PartiallyPlayedList
-    MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    // create a playlist here
+    MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
     
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);
-    return PartiallyPlayedList;
+    return Playlist;
 }
 
 @end
