@@ -11,4 +11,5 @@
 
 @interface MediaLibraryCleanup : NSObject
 + (MPMediaItemCollection*)ClearPartiallyPlayed;
++ (int) Count;
 @end

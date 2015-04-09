@@ -151,11 +151,11 @@ void audioRouteChangeListenerCallback (
 
 // move playback position to end for all Partially Played
 - (IBAction) ClearPartiallyPlayed: (id) sender {
+    int itemCount = [MediaLibraryCleanup Count];
     MPMediaItemCollection *PartiallyPlayedList =[MediaLibraryCleanup ClearPartiallyPlayed];
     
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [musicPlayer play];
-    [musicPlayer stop];
     
     // iterate through list and set playback to end-1
     int ct = [PartiallyPlayedList count];
@@ -176,7 +176,7 @@ void audioRouteChangeListenerCallback (
         NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
         double EndkValue = [timevalue doubleValue];
         [musicPlayer setCurrentPlaybackTime:(EndkValue)-1];
-        [musicPlayer skipToNextItem];
+        //[musicPlayer skipToNextItem];
     }
 }
 
