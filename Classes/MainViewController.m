@@ -151,8 +151,11 @@ void audioRouteChangeListenerCallback (
 
 // move playback position to end for all Partially Played
 - (IBAction) ClearPartiallyPlayed: (id) sender {
-    int itemCount = [MediaLibraryCleanup Count];
-    MPMediaItemCollection *PartiallyPlayedList =[MediaLibraryCleanup ClearPartiallyPlayed];
+    
+    MediaLibraryCleanup *PartiallyPlayed;
+    [PartiallyPlayed alloc];
+    MPMediaItemCollection *PartiallyPlayedList =[PartiallyPlayed ClearPartiallyPlayed];
+    int itemCount = [PartiallyPlayed ItemsCount];
     
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [musicPlayer play];

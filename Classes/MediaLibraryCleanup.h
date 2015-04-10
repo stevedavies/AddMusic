@@ -10,6 +10,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface MediaLibraryCleanup : NSObject
+
+@property (nonatomic, readonly ) int ItemsCount;
 + (MPMediaItemCollection*)ClearPartiallyPlayed;
-+ (int) Count;
 @end
+
