@@ -11,7 +11,7 @@
 
 @interface MediaLibraryCleanup : NSObject
 
-@property (nonatomic, readonly ) int ItemsCount;
+@property (nonatomic, readonly) int ItemsCount;
 + (MPMediaItemCollection*)ClearPartiallyPlayed;
 @end
 

@@ -152,11 +152,7 @@ void audioRouteChangeListenerCallback (
 // move playback position to end for all Partially Played
 - (IBAction) ClearPartiallyPlayed: (id) sender {
     
-    MediaLibraryCleanup *PartiallyPlayed;
-    [PartiallyPlayed alloc];
-    MPMediaItemCollection *PartiallyPlayedList =[PartiallyPlayed ClearPartiallyPlayed];
-    int itemCount = [PartiallyPlayed ItemsCount];
-    
+    MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed];
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [musicPlayer play];
     
@@ -164,6 +160,11 @@ void audioRouteChangeListenerCallback (
     int ct = [PartiallyPlayedList count];
     for (int i = 1; i <= ct; i++){
         MPMediaItem  *item =[musicPlayer nowPlayingItem];
+        
+        //NowPlayingInfoCenter
+        //int foo = [nowPlayingInfo MPNowPlayingInfoPropertyPlaybackQueueIndex];
+        //int foo2 =[musicPlayer MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        //int foo3 =[ MPNowPlayingInfoPropertyPlaybackQueueCount ];
         
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
         NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
@@ -175,12 +176,13 @@ void audioRouteChangeListenerCallback (
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
         
         printf("%s", [[NSString stringWithFormat:@"\n  ENDING-> Type:%d Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",TypeValue, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
-        // not working -- 
         NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
-        double EndkValue = [timevalue doubleValue];
-        [musicPlayer setCurrentPlaybackTime:(EndkValue)-1];
-        //[musicPlayer skipToNextItem];
+        double EndValue = [timevalue doubleValue];
+        //[musicPlayer setCurrentPlaybackTime:(EndValue)-1];
+        [musicPlayer skipToNextItem];
+        [musicPlayer play];
     }
+    [musicPlayer stop];
 }
 
 // move playback position back 30 seconds

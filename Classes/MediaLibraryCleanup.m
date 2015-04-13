@@ -9,16 +9,12 @@
 #import "MediaLibraryCleanup.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-
-
 @implementation MediaLibraryCleanup
-
-@synthesize ItemsCount;
 
 + (MPMediaItemCollection*)ClearPartiallyPlayed{
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
     ////////////////////////////////
-    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaLibraryCleanup MediaQuery:"] UTF8String]);
     MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
     
     // see MediaLibraryStats.h for a list of media item properties
@@ -66,13 +62,12 @@
                 // create a new class for this
             }
         }
-        
     }
     printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %d", [albums count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %d", [PlaylistItems count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
-    ItemsCount = [PartiallyPlayedList count];
     return PartiallyPlayedList;
     ////////////////////////////////
 }
