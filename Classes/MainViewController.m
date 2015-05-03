@@ -174,11 +174,12 @@ void audioRouteChangeListenerCallback (
         NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
-        
         printf("%s", [[NSString stringWithFormat:@"\n  ENDING-> Type:%d Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",TypeValue, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+        
         NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
         double EndValue = [timevalue doubleValue];
         //[musicPlayer setCurrentPlaybackTime:(EndValue)-1];
+        sleep(1); //nanosleep
         [musicPlayer skipToNextItem];
         [musicPlayer play];
     }

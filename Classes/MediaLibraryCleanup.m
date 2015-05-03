@@ -68,6 +68,10 @@
     printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %d", [PlaylistItems count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    ////
+    // ? move code here to iterte and set position
+    ////
+    
     return PartiallyPlayedList;
     ////////////////////////////////
 }

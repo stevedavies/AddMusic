@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface MediaLibraryCleanup : NSObject
+@interface MediaLibraryCleanup : NSObject 
 
 @property (nonatomic, readonly) int ItemsCount;
 + (MPMediaItemCollection*)ClearPartiallyPlayed;
