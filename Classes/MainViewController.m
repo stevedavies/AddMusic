@@ -6,12 +6,44 @@ to and manages user interaction.
 
 */
 
-
 #import "MainViewController.h"
 #import <Foundation/Foundation.h>
 #import "MediaItemCollectionCreator.h"
 #import "MediaLibraryStats.h"
 #import "MediaLibraryCleanup.h"
+
+@implementation MainViewController
+
+@synthesize artworkItem;				// the now-playing media item's artwork image, displayed in the Navigation bar
+@synthesize userMediaItemCollection;	// the media item collection created by the user, using the media item picker
+@synthesize playBarButton;				// the button for invoking Play on the music player
+@synthesize pauseBarButton;				// the button for invoking Pause on the music player
+@synthesize musicPlayer;				// the music player, which plays media items from the iPod library
+@synthesize navigationBar;				// the application's Navigation bar
+@synthesize noArtworkImage;				// an image to display when a media item has no associated artwork
+@synthesize backgroundColorTimer;		// a timer for changing the background color -- represents an application that is
+                                        //		doing something else while iPod music is playing
+@synthesize nowPlayingLabel;			// descriptive text shown on the main screen about the now-playing media item
+@synthesize appSoundButton;				// the button to invoke playback for the application sound
+@synthesize addOrShowMusicButton;		// the button for invoking the media item picker. if the user has already
+                                        //		specified a media item collection, the title changes to "Show Music" and
+                                        //		the button invokes a table view that shows the specified collection
+                                        //new buttons
+@synthesize CreatePlaylistAndPlayButton;
+@synthesize Plus30Button;
+@synthesize Minus30Button;
+@synthesize MoveZeroButton;
+@synthesize StatsButton;
+@synthesize ClearPartiallyPlayedButton;
+
+@synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
+@synthesize soundFileURL;				// The path to the application sound
+@synthesize interruptedOnPlayback;		// A flag indicating whether or not the application was interrupted during
+                                        //		application audio playback
+@synthesize playedMusicOnce;			// A flag indicating if the user has played iPod library music at least one time
+                                        //		since application launch.
+@synthesize playing;					// An application that responds to interruptions must keep track of its playing/
+                                        //		not-playing state.
 
 #pragma mark Audio session callbacks_______________________
 
@@ -87,40 +119,6 @@ void audioRouteChangeListenerCallback (
 	}
 }
 
-
-
-@implementation MainViewController
-
-@synthesize artworkItem;				// the now-playing media item's artwork image, displayed in the Navigation bar
-@synthesize userMediaItemCollection;	// the media item collection created by the user, using the media item picker	
-@synthesize playBarButton;				// the button for invoking Play on the music player
-@synthesize pauseBarButton;				// the button for invoking Pause on the music player
-@synthesize musicPlayer;				// the music player, which plays media items from the iPod library
-@synthesize navigationBar;				// the application's Navigation bar
-@synthesize noArtworkImage;				// an image to display when a media item has no associated artwork
-@synthesize backgroundColorTimer;		// a timer for changing the background color -- represents an application that is
-										//		doing something else while iPod music is playing
-@synthesize nowPlayingLabel;			// descriptive text shown on the main screen about the now-playing media item
-@synthesize appSoundButton;				// the button to invoke playback for the application sound
-@synthesize addOrShowMusicButton;		// the button for invoking the media item picker. if the user has already 
-										//		specified a media item collection, the title changes to "Show Music" and
-										//		the button invokes a table view that shows the specified collection
-//new buttons
-@synthesize CreatePlaylistAndPlayButton;
-@synthesize Plus30Button;
-@synthesize Minus30Button;
-@synthesize MoveZeroButton;
-@synthesize StatsButton;
-@synthesize ClearPartiallyPlayedButton;
-
-@synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
-@synthesize soundFileURL;				// The path to the application sound
-@synthesize interruptedOnPlayback;		// A flag indicating whether or not the application was interrupted during 
-										//		application audio playback
-@synthesize playedMusicOnce;			// A flag indicating if the user has played iPod library music at least one time
-										//		since application launch.
-@synthesize playing;					// An application that responds to interruptions must keep track of its playing/
-										//		not-playing state.
 
 #pragma mark Music control________________________________
 
