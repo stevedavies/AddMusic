@@ -13,7 +13,7 @@
 
 @property (nonatomic, readonly) int ItemsCount;
 
-+ (MPMediaItemCollection*)ClearPartiallyPlayed;
-+ (MPMediaItemCollection*)ClearByTitle;
++ (MPMediaItemCollection*)ClearPartiallyPlayed:(NSString *) Album;
++ (MPMediaItemCollection*)ClearByTitle:(NSString *) Title Album:(NSString *)Album;
 @end
 

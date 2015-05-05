@@ -11,7 +11,7 @@
 
 @implementation MediaLibraryCleanup
 
-+ (MPMediaItemCollection*)ClearPartiallyPlayed{
++ (MPMediaItemCollection*)ClearPartiallyPlayed: (NSString *)Album{
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
  
     printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaLibraryCleanup MediaQuery:"] UTF8String]);
@@ -24,7 +24,7 @@
                                           comparisonType: MPMediaPredicateComparisonEqualTo]];
     
     [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
-                                          predicateWithValue: @"Bloomberg"
+                                          predicateWithValue: Album
                                           forProperty: MPMediaItemPropertyAlbumTitle
                                           comparisonType: MPMediaPredicateComparisonContains]];
     
@@ -74,7 +74,7 @@
     return PartiallyPlayedList;
 }
 
-    + (MPMediaItemCollection*)ClearByTitle{
++ (MPMediaItemCollection*)ClearByTitle: (NSString *) Title Album:(NSString *) Album{
         NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
         
         printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaLibraryCleanup MediaQuery:"] UTF8String]);
@@ -87,12 +87,12 @@
                                               comparisonType: MPMediaPredicateComparisonEqualTo]];
         
         [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
-                                              predicateWithValue: @"Bloomberg"
+                                              predicateWithValue: Album
                                               forProperty: MPMediaItemPropertyAlbumTitle
                                               comparisonType: MPMediaPredicateComparisonContains]];
         
         [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
-                                              predicateWithValue: @"Law Brief:"
+                                              predicateWithValue: Title
                                               forProperty: MPMediaItemPropertyTitle
                                               comparisonType: MPMediaPredicateComparisonContains]];
         

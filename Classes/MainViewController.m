@@ -150,7 +150,7 @@ void audioRouteChangeListenerCallback (
 // move playback position to end for all Partially Played
 - (IBAction) ClearPartiallyPlayed: (id) sender {
     
-    MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed];
+    MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Bloomberg"];
     [musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
     [musicPlayer play];
     
@@ -187,7 +187,7 @@ void audioRouteChangeListenerCallback (
 // move playback position to end for all with certain Title / Album
 - (IBAction) ClearByTitle: (id) sender {
     
-    MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle];
+    MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Law Brief:" Album:@"Bloomberg"];
     [musicPlayer setQueueWithItemCollection: ByTitlePlayedList];
     [musicPlayer play];
     
