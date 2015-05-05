@@ -36,6 +36,7 @@ to and manages user interaction.
     IBOutlet UIButton           *nnButton;
     IBOutlet UIButton           *ppButton;
     IBOutlet UIButton           *ClearPartiallyPlayedButton;
+    IBOutlet UIButton           *ClearByTitleButton;
 	BOOL						interruptedOnPlayback;
 	BOOL						playing ;
 
@@ -71,6 +72,7 @@ to and manages user interaction.
 @property (nonatomic, retain)   IBOutlet UIButton       *nnButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ppButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ClearPartiallyPlayedButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *ClearByTitleButton;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;
 

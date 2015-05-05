@@ -199,7 +199,7 @@
 							<int key="weightCategory">30</int>
 							<double key="pointSize">15</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="167838461">
+						<object class="NSFont" key="IBUIFont" id="972512957">
 							<string key="NSName">HelveticaNeue</string>
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
@@ -222,7 +222,7 @@
 						<string key="IBUINormalTitle">PP</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="897283543">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -241,7 +241,7 @@
 						<string key="IBUINormalTitle">Beginning</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="791545249">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -260,7 +260,7 @@
 						<string key="IBUINormalTitle">-60</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="822901997">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -279,7 +279,7 @@
 						<string key="IBUINormalTitle">-30</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="1029590149">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -298,7 +298,7 @@
 						<string key="IBUINormalTitle">-10</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="755006303">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -317,7 +317,7 @@
 						<string key="IBUINormalTitle">+60</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="381194807">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -336,7 +336,7 @@
 						<string key="IBUINormalTitle">NN</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="920604358">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -355,7 +355,7 @@
 						<string key="IBUINormalTitle">+30</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="690915970">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -374,7 +374,7 @@
 						<string key="IBUINormalTitle">SKIP</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="974234300">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -382,7 +382,7 @@
 						<string key="NSFrame">{{186, 97}, {61, 24}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="794642520"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -393,7 +393,7 @@
 						<string key="IBUINormalTitle">Stats</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
 					</object>
 					<object class="IBUIButton" id="794642520">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -401,6 +401,7 @@
 						<string key="NSFrame">{{65, 147}, {176, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="276700006"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -411,7 +412,34 @@
 						<string key="IBUINormalTitle">Clear Partially Played</string>
 						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
 						<reference key="IBUIFontDescription" ref="624256855"/>
-						<reference key="IBUIFont" ref="167838461"/>
+						<reference key="IBUIFont" ref="972512957"/>
+					</object>
+					<object class="IBUIButton" id="276700006">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{94, 198}, {117, 44}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="960897394"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<reference key="IBUINormalTitleColor" ref="975410319"/>
+						<reference key="IBUIHighlightedTitleColor" ref="1021214328"/>
+						<string key="IBUINormalTitle">Clear by Title</string>
+						<reference key="IBUINormalTitleShadowColor" ref="717638734"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<int key="weightCategory">0</int>
+							<double key="pointSize">15</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">HelveticaNeue-Bold</string>
+							<double key="NSSize">15</double>
+							<int key="NSfFlags">16</int>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
@@ -538,6 +566,14 @@
 					<int key="connectionID">88</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">ClearByTitleButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="276700006"/>
+					</object>
+					<int key="connectionID">92</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">playOrPauseMusic:</string>
 						<reference key="source" ref="212578967"/>
@@ -635,6 +671,15 @@
 					</object>
 					<int key="connectionID">89</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">ClearByTitle:</string>
+						<reference key="source" ref="276700006"/>
+						<reference key="destination" ref="975951072"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">91</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -664,6 +709,7 @@
 							<reference ref="666300661"/>
 							<reference ref="974234300"/>
 							<reference ref="794642520"/>
+							<reference ref="276700006"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -774,6 +820,11 @@
 						<reference key="object" ref="794642520"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">90</int>
+						<reference key="object" ref="276700006"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -803,12 +854,13 @@
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="87.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="90.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">89</int>
+			<int key="maxID">92</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -835,6 +887,7 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="ClearByTitleButton">UIButton</string>
 						<string key="ClearPartiallyPlayedButton">UIButton</string>
 						<string key="CreatePlaylistAndPlayButton">UIButton</string>
 						<string key="Minus30Button">UIButton</string>
@@ -850,6 +903,10 @@
 						<string key="ppButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="ClearByTitleButton">
+							<string key="name">ClearByTitleButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="ClearPartiallyPlayedButton">
 							<string key="name">ClearPartiallyPlayedButton</string>
 							<string key="candidateClassName">UIButton</string>
@@ -912,6 +969,7 @@
 					<string key="className">MainViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="AddMusicOrShowMusic:">id</string>
+						<string key="ClearByTitle:">id</string>
 						<string key="ClearPartiallyPlayed:">id</string>
 						<string key="CreatePlaylistAndPlay:">id</string>
 						<string key="Minus30sec:">id</string>
@@ -927,6 +985,10 @@
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="AddMusicOrShowMusic:">
 							<string key="name">AddMusicOrShowMusic:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="ClearByTitle:">
+							<string key="name">ClearByTitle:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="ClearPartiallyPlayed:">

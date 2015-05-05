@@ -78,7 +78,7 @@
             //NSLog (@"\t\t\t%@", [song valueForProperty: MPMediaItemPropertyPersistentID]);
         }*/
     }
-    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nPlaylists Count: %d", PlaylistsCount] UTF8String]);
     
 
     
