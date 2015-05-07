@@ -25,6 +25,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		580748730FAA6E1600373EAF /* MusicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580748710FAA6E1600373EAF /* MusicTableViewController.m */; };
 		58D3B0100F9FE329006F1B20 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D3B00F0F9FE329006F1B20 /* MediaPlayer.framework */; };
+		D51C5FB71AFAD2620052C927 /* MediaPlayerWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = D51C5FB61AFAD2620052C927 /* MediaPlayerWorker.m */; };
 		D5B86C961AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B86C951AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m */; };
 		F47AB8B11AF6F883000BC297 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F47AB8B01AF6F883000BC297 /* Default-568h@2x.png */; };
 		F49301101AA0068B009B5669 /* MediaLibraryStats.m in Sources */ = {isa = PBXBuildFile; fileRef = F493010F1AA0068B009B5669 /* MediaLibraryStats.m */; };
@@ -56,6 +57,8 @@
 		580748700FAA6E1600373EAF /* MusicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewController.h; sourceTree = "<group>"; };
 		580748710FAA6E1600373EAF /* MusicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewController.m; sourceTree = "<group>"; };
 		58D3B00F0F9FE329006F1B20 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D51C5FB51AFAD2620052C927 /* MediaPlayerWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPlayerWorker.h; sourceTree = "<group>"; };
+		D51C5FB61AFAD2620052C927 /* MediaPlayerWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPlayerWorker.m; sourceTree = "<group>"; };
 		D5B86C941AA0FFA2004FE4E0 /* MediaItemCollectionCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemCollectionCreator.h; sourceTree = "<group>"; };
 		D5B86C951AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemCollectionCreator.m; sourceTree = "<group>"; };
 		F47AB8B01AF6F883000BC297 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				F493010E1AA0068B009B5669 /* MediaLibraryStats.h */,
 				F493010F1AA0068B009B5669 /* MediaLibraryStats.m */,
 				F4F77ED71ABD06F400D46582 /* MediaLibraryCleanup.h */,
+				D51C5FB51AFAD2620052C927 /* MediaPlayerWorker.h */,
+				D51C5FB61AFAD2620052C927 /* MediaPlayerWorker.m */,
 				F4F77ED81ABD06F400D46582 /* MediaLibraryCleanup.m */,
 				580748700FAA6E1600373EAF /* MusicTableViewController.h */,
 				580748710FAA6E1600373EAF /* MusicTableViewController.m */,
@@ -241,6 +246,7 @@
 				D5B86C961AA0FFA2004FE4E0 /* MediaItemCollectionCreator.m in Sources */,
 				F49301101AA0068B009B5669 /* MediaLibraryStats.m in Sources */,
 				580748730FAA6E1600373EAF /* MusicTableViewController.m in Sources */,
+				D51C5FB71AFAD2620052C927 /* MediaPlayerWorker.m in Sources */,
 				F4F77ED91ABD06F400D46582 /* MediaLibraryCleanup.m in Sources */,
 				0A735D530FACBA430057280A /* MainViewController.m in Sources */,
 			);

@@ -11,6 +11,7 @@
 
 @implementation MediaLibraryCleanup
 
+
 + (MPMediaItemCollection*)ClearPartiallyPlayed: (NSString *)Album{
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
  
@@ -28,10 +29,6 @@
                                           forProperty: MPMediaItemPropertyAlbumTitle
                                           comparisonType: MPMediaPredicateComparisonContains]];
     
-    //Alternate method - create predicates, add to set....
-    //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
-    
-    // Sets the grouping type for the media query
     [myPodcastsQuery setGroupingType: MPMediaGroupingAlbum];
     
     NSArray *albums = [myPodcastsQuery collections];
