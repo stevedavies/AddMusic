@@ -47,8 +47,8 @@
 		0ADFA0830FABA7250020C909 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0ADFA09D0FABA9DF0020C909 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* AddMusicAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMusicAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* AddMusicAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMusicAppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* AddMusicAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddMusicAppDelegate.h; path = Classes/AddMusicAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AddMusicAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddMusicAppDelegate.m; path = Classes/AddMusicAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* AddMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,8 +88,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1D3623240D0F684500981E51 /* AddMusicAppDelegate.h */,
-				1D3623250D0F684500981E51 /* AddMusicAppDelegate.m */,
 				0A735D510FACBA430057280A /* MainViewController.h */,
 				0A735D520FACBA430057280A /* MainViewController.m */,
 				D5B86C941AA0FFA2004FE4E0 /* MediaItemCollectionCreator.h */,
@@ -131,6 +129,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1D3623240D0F684500981E51 /* AddMusicAppDelegate.h */,
+				1D3623250D0F684500981E51 /* AddMusicAppDelegate.m */,
 				32CA4F630368D1EE00C91783 /* AddMusic_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);

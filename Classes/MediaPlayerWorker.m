@@ -43,8 +43,8 @@
         
         NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
         double EndValue = [timevalue doubleValue];
-        //[musicPlayer setCurrentPlaybackTime:(EndValue)-1];
-        sleep(1); //nanosleep
+        [musicPlayer setCurrentPlaybackTime:(EndValue)-2];
+        sleep(1); // look into nanosleep()
         [musicPlayer skipToNextItem];
         [musicPlayer play];
     }

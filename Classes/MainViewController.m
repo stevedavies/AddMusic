@@ -150,47 +150,20 @@ void audioRouteChangeListenerCallback (
 
 // move playback position to end for all Partially Played
 - (IBAction) ClearPartiallyPlayed: (id) sender {
-    
-    MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Bloomberg"];
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
+    MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Bloomberg"];
     [Temp SetToEnd:PartiallyPlayedList] ;  //<<<<<<<<<<<<<--------------------------------------------------------------Working Here
 }
 
 // move playback position to end for all with certain Title / Album
 - (IBAction) ClearByTitle: (id) sender {
-    
-    MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Law Brief:" Album:@"Bloomberg"];
-    [musicPlayer setQueueWithItemCollection: ByTitlePlayedList];
-    [musicPlayer play];
-    
-    // iterate through list and set playback to end-1
-    int ct = [ByTitlePlayedList count];
-    for (int i = 1; i <= ct; i++){
-        MPMediaItem  *item =[musicPlayer nowPlayingItem];
-        
-        //NowPlayingInfoCenter
-        //int foo = [nowPlayingInfo MPNowPlayingInfoPropertyPlaybackQueueIndex];
-        //int foo2 =[musicPlayer MPNowPlayingInfoPropertyElapsedPlaybackTime];
-        //int foo3 =[ MPNowPlayingInfoPropertyPlaybackQueueCount ];
-        
-        NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
-        NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
-        double BookmarkValue = [itemBookmarkTime doubleValue];
-        NSString *itemPlaybackDuration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
-        double PlaybackDuration = [itemPlaybackDuration doubleValue];
-        NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
-        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
-        printf("%s", [[NSString stringWithFormat:@"\n  ENDING-> Type:%d Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",TypeValue, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
-        
-        NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
-        double EndValue = [timevalue doubleValue];
-        //[musicPlayer setCurrentPlaybackTime:(EndValue)-1];
-        sleep(1); //nanosleep
-        [musicPlayer skipToNextItem];
-        [musicPlayer play];
-    }
-    [musicPlayer stop];
+    MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
+    MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Law Brief:" Album:@"Bloomberg Law"];
+    [Temp SetToEnd:ByTitlePlayedList] ;
+    ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Winners and Losers" Album:@"Taking Stock"];
+    [Temp SetToEnd:ByTitlePlayedList] ;
+    ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"QuickTake" Album:@"Bloomberg Advantage"];
+    [Temp SetToEnd:ByTitlePlayedList] ;
 }
 
 // move playback position back 30 seconds

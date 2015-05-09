@@ -64,7 +64,13 @@
     printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %d", [PlaylistItems count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
-    MPMediaItemCollection *PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    MPMediaItemCollection *PartiallyPlayedList;
+    if(PlaylistItems.count>0) {
+        PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    }
+    else {
+        PartiallyPlayedList=[MPMediaItemCollection alloc];
+    }
     ////
     // ? move code here to iterate and set position ?
     ////
