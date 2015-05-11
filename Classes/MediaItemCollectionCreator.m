@@ -9,6 +9,8 @@
 #import "MediaItemCollectionCreator.h"
 #import <MediaPlayer/MediaPlayer.h>
 
+// make these two separate calls --> pass an NSMutableArray, return an NSMutableArray
+
 @implementation MediaItemCollectionCreator
 + (MPMediaItemCollection*) MakePlaylist{
     int PodcastQueryItemsCount=0;
@@ -28,16 +30,12 @@
                                                forProperty: MPMediaItemPropertyMediaType
                                                comparisonType: MPMediaPredicateComparisonEqualTo];
     MPMediaPropertyPredicate *titlePredicate = [MPMediaPropertyPredicate
-                                                  predicateWithValue: @"EconTalk"
-                                                  forProperty: MPMediaItemPropertyAlbumTitle
-                                                  comparisonType: MPMediaPredicateComparisonContains];
+                                                predicateWithValue: @"EconTalk"
+                                                forProperty: MPMediaItemPropertyAlbumTitle
+                                                comparisonType: MPMediaPredicateComparisonContains];
     [myPodcastsQuery addFilterPredicate: typePredicate];
     [myPodcastsQuery addFilterPredicate: titlePredicate];
     [myPodcastsQuery setGroupingType: MPMediaGroupingAlbum];
-    //Alternate method - create predicates, add to set....
-    //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
-    
-    
     
     NSArray *itemsFromGenericQuery = [myPodcastsQuery items];
     for (MPMediaItem *item in itemsFromGenericQuery) {
