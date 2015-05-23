@@ -9,9 +9,32 @@
 #import "MediaItemCollectionCreator.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-// make these two separate calls --> pass an NSMutableArray, return an NSMutableArray
+// make these two separate calls (music, podcast) --> pass an NSMutableArray, return an NSMutableArray
+// add parameters for media propterty predicates
+/*
+ Podcast item property keys
+NSString *const MPMediaItemPropertyPlayCount;
+NSString *const MPMediaItemPropertySkipCount;
+NSString *const MPMediaItemPropertyRating;
+NSString *const MPMediaItemPropertyLastPlayedDate;
+NSString *const MPMediaItemPropertyUserGrouping;
+NSString *const MPMediaItemPropertyBookmarkTime;
+ */
 
 @implementation MediaItemCollectionCreator
++ (MPMediaItemCollection*) AddPodcast: (MPMediaItemCollection*) Playlist
+                              orderBy: (NSString*) Order
+                          numberToAdd: (NSInteger*) Count
+{
+    
+    return Playlist;
+}
+
++ (MPMediaItemCollection*) AdddMusic: (MPMediaItemCollection*) Playlist{
+    
+    return Playlist;
+}
+
 + (MPMediaItemCollection*) MakePlaylist{
     int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
