@@ -160,10 +160,11 @@ void audioRouteChangeListenerCallback (
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
     MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Law Brief:" Album:@"Bloomberg Law"];
     [Temp SetToEnd:ByTitlePlayedList] ;
-    ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Winners and Losers" Album:@"Taking Stock"];
-    [Temp SetToEnd:ByTitlePlayedList] ;
     ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"QuickTake" Album:@"Bloomberg Advantage"];
     [Temp SetToEnd:ByTitlePlayedList] ;
+    ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Winners and Losers" Album:@"Taking Stock"];
+    [Temp SetToEnd:ByTitlePlayedList] ;
+
 }
 
 // move playback position back 30 seconds
