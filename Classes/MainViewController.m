@@ -142,6 +142,7 @@ void audioRouteChangeListenerCallback (
     MPMediaItemCollection *Playlist = [ MediaItemCollectionCreator MakePlaylist];
     //////////////////////
     //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
+    userMediaItemCollection = Playlist;
     [musicPlayer setQueueWithItemCollection: Playlist];
     [self setPlayedMusicOnce: YES];
     [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
@@ -652,7 +653,7 @@ void audioRouteChangeListenerCallback (
 																				 target: self
 																				 action: @selector (playOrPauseMusic:)]];
 
-	[addOrShowMusicButton	setTitle: NSLocalizedString (@"Add Music", @"Title for 'Add Music' button, before user has chosen some music")
+	[addOrShowMusicButton	setTitle: NSLocalizedString (@"Show Queue", @"Title for 'Add Music' button, before user has chosen some music")
 							forState: UIControlStateNormal];
 
 	[appSoundButton			setTitle: NSLocalizedString (@"Play App Sound", @"Title for 'Play App Sound' button")
