@@ -140,7 +140,6 @@
 						<string key="NSFrame">{{8, 496}, {320, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEgMC42AA</bytes>
@@ -384,7 +383,7 @@
 					<object class="IBUIButton" id="974234300">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{186, 97}, {61, 24}}</string>
+						<string key="NSFrame">{{186, 97}, {61, 25}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="794642520"/>
@@ -457,6 +456,7 @@
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
+			<bool key="usesAutoincrementingIDs">NO</bool>
 			<array key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -464,7 +464,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="191373211"/>
 					</object>
-					<int key="connectionID">13</int>
+					<string key="id">13</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -472,7 +472,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="23396351"/>
 					</object>
-					<int key="connectionID">19</int>
+					<string key="id">19</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -480,7 +480,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="502404135"/>
 					</object>
-					<int key="connectionID">53</int>
+					<string key="id">53</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -488,7 +488,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="473654032"/>
 					</object>
-					<int key="connectionID">54</int>
+					<string key="id">54</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -496,7 +496,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="529007366"/>
 					</object>
-					<int key="connectionID">58</int>
+					<string key="id">58</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -504,7 +504,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="666300661"/>
 					</object>
-					<int key="connectionID">61</int>
+					<string key="id">61</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -512,7 +512,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="897283543"/>
 					</object>
-					<int key="connectionID">73</int>
+					<string key="id">73</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -520,7 +520,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="822901997"/>
 					</object>
-					<int key="connectionID">75</int>
+					<string key="id">75</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -528,7 +528,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="920604358"/>
 					</object>
-					<int key="connectionID">77</int>
+					<string key="id">77</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -536,7 +536,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="974234300"/>
 					</object>
-					<int key="connectionID">81</int>
+					<string key="id">81</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -544,7 +544,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="381194807"/>
 					</object>
-					<int key="connectionID">83</int>
+					<string key="id">83</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -552,7 +552,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="960897394"/>
 					</object>
-					<int key="connectionID">85</int>
+					<string key="id">85</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -560,7 +560,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="794642520"/>
 					</object>
-					<int key="connectionID">88</int>
+					<string key="id">88</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -568,7 +568,7 @@
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="276700006"/>
 					</object>
-					<int key="connectionID">92</int>
+					<string key="id">92</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -576,7 +576,7 @@
 						<reference key="source" ref="212578967"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">48</int>
+					<string key="id">48</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -585,7 +585,7 @@
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">47</int>
+					<string key="id">47</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -594,7 +594,7 @@
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">57</int>
+					<string key="id">57</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -603,7 +603,7 @@
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">62</int>
+					<string key="id">62</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -612,7 +612,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">86</int>
+					<string key="id">86</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -621,7 +621,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">84</int>
+					<string key="id">84</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -630,7 +630,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">76</int>
+					<string key="id">76</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -639,7 +639,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">78</int>
+					<string key="id">78</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -648,7 +648,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">74</int>
+					<string key="id">74</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -657,7 +657,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">82</int>
+					<string key="id">82</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -666,7 +666,7 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">89</int>
+					<string key="id">89</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -675,19 +675,19 @@
 						<reference key="destination" ref="975951072"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">91</int>
+					<string key="id">91</string>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
 					<object class="IBObjectRecord">
-						<int key="objectID">0</int>
+						<string key="id">0</string>
 						<array key="object" id="0"/>
 						<reference key="children" ref="1000"/>
 						<nil key="parent"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1</int>
+						<string key="id">1</string>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="381194807"/>
@@ -711,18 +711,18 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">-1</int>
+						<string key="id">-1</string>
 						<reference key="object" ref="372490531"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">File's Owner</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">-2</int>
+						<string key="id">-2</string>
 						<reference key="object" ref="975951072"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">4</int>
+						<string key="id">4</string>
 						<reference key="object" ref="23396351"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="920928731"/>
@@ -730,7 +730,7 @@
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">6</int>
+						<string key="id">6</string>
 						<reference key="object" ref="920928731"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="212578967"/>
@@ -738,87 +738,92 @@
 						<reference key="parent" ref="23396351"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">41</int>
+						<string key="id">41</string>
 						<reference key="object" ref="529007366"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">43</int>
+						<string key="id">43</string>
 						<reference key="object" ref="473654032"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">50</int>
+						<string key="id">50</string>
 						<reference key="object" ref="502404135"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">59</int>
+						<string key="id">59</string>
 						<reference key="object" ref="666300661"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">63</int>
+						<string key="id">63</string>
 						<reference key="object" ref="960897394"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">64</int>
+						<string key="id">64</string>
 						<reference key="object" ref="381194807"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">65</int>
+						<string key="id">65</string>
 						<reference key="object" ref="791545249"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">66</int>
+						<string key="id">66</string>
 						<reference key="object" ref="755006303"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">67</int>
+						<string key="id">67</string>
 						<reference key="object" ref="822901997"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">69</int>
+						<string key="id">69</string>
 						<reference key="object" ref="920604358"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">70</int>
+						<string key="id">70</string>
 						<reference key="object" ref="897283543"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">71</int>
+						<string key="id">71</string>
 						<reference key="object" ref="690915970"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">72</int>
+						<string key="id">72</string>
 						<reference key="object" ref="1029590149"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">79</int>
+						<string key="id">79</string>
 						<reference key="object" ref="974234300"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">25</int>
+						<string key="id">25</string>
 						<reference key="object" ref="212578967"/>
 						<reference key="parent" ref="920928731"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">87</int>
+						<string key="id">87</string>
 						<reference key="object" ref="794642520"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">90</int>
+						<string key="id">90</string>
 						<reference key="object" ref="276700006"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -832,11 +837,15 @@
 				<reference key="1.IBNSViewMetadataGestureRecognizers" ref="0"/>
 				<string key="1.IBPersistedLastKnownCanvasPosition">{263, 581.5}</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<array key="1.IBViewMetadataConstraints"/>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<array key="41.IBViewMetadataConstraints"/>
 				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<array key="43.IBViewMetadataConstraints"/>
 				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<array key="50.IBViewMetadataConstraints"/>
 				<object class="NSMutableAttributedString" key="50.notes">
 					<object class="NSMutableString" key="NSString">
 						<characters key="NS.bytes">dfd</characters>
@@ -854,6 +863,7 @@
 					</dictionary>
 				</object>
 				<string key="59.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<array key="59.IBViewMetadataConstraints"/>
 				<string key="59.object.labelIdentifier">IBBuiltInLabel-Gray</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="63.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -867,13 +877,13 @@
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="87.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<array key="87.IBViewMetadataConstraints"/>
 				<string key="90.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">92</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
