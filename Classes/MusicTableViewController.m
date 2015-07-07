@@ -103,9 +103,11 @@ static NSString *kCellIdentifier = @"Cell";
 	MainViewController *mainViewController = (MainViewController *) self.delegate;
 	MPMediaItemCollection *currentQueue = mainViewController.userMediaItemCollection;
 	MPMediaItem *anItem = (MPMediaItem *)[currentQueue.items objectAtIndex: row];
-	
+    NSString *itemText;
+    
 	if (anItem) {
-		cell.textLabel.text = [anItem valueForProperty:MPMediaItemPropertyTitle];
+        itemText = @"[%@] %@ %@",[anItem valueForProperty:MPMediaItemPropertyPlaybackDuration],[anItem valueForProperty:MPMediaItemPropertyAlbumTitle],[anItem valueForProperty:MPMediaItemPropertyTitle];
+		cell.textLabel.text = itemText;  //<<<<<<<<------cell contents here
 	}
 
 	[tableView deselectRowAtIndexPath: indexPath animated: YES];
