@@ -104,9 +104,20 @@ static NSString *kCellIdentifier = @"Cell";
 	MPMediaItemCollection *currentQueue = mainViewController.userMediaItemCollection;
 	MPMediaItem *anItem = (MPMediaItem *)[currentQueue.items objectAtIndex: row];
     NSString *itemText;
-    
+    NSDateComponentsFormatter *dcFormatter = [[NSDateComponentsFormatter alloc] init];
+    NSString *duration;
+    int seconds;
 	if (anItem) {
-        itemText = @"[%@] %@ %@",[anItem valueForProperty:MPMediaItemPropertyPlaybackDuration],[anItem valueForProperty:MPMediaItemPropertyAlbumTitle],[anItem valueForProperty:MPMediaItemPropertyTitle];
+        seconds =(int)[[anItem valueForProperty:MPMediaItemPropertyPlaybackDuration] floatValue];
+        dcFormatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
+        dcFormatter.allowedUnits = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+        dcFormatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
+        duration= [dcFormatter stringFromTimeInterval:seconds];
+
+        itemText = [NSString stringWithFormat:@"[%@] %@ %@",
+                    [anItem valueForProperty:MPMediaItemPropertyAlbumTitle],
+                    duration,
+                    [anItem valueForProperty:MPMediaItemPropertyTitle]];
 		cell.textLabel.text = itemText;  //<<<<<<<<------cell contents here
 	}
 
