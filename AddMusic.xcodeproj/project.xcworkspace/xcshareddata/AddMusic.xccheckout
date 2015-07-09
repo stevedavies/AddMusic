@@ -7,21 +7,21 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>668F58F7-E566-47F2-9537-E3F9CBB60F2F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>AddMusic</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3DA7DEF056C3C60BA155B11BB1BABA2DEDA86FAE</key>
-		<string>https://github.com/stevedavies/AddMusic.git</string>
+		<string>https://github.com/stevedavies/Add-Music.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AddMusic.xcodeproj/project.xcworkspace</string>
+	<string>AddMusic.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3DA7DEF056C3C60BA155B11BB1BABA2DEDA86FAE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/stevedavies/AddMusic.git</string>
+	<string>https://github.com/stevedavies/Add-Music.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

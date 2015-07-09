@@ -71,6 +71,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSString *itemType = [item valueForProperty:MPMediaItemPropertyMediaType];
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
+        NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
         
         if(TypeValue == 2 & BookmarkValue > 0) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
@@ -81,6 +82,14 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         };
         PodcastQueryItemsCount++;
     }
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"releaseDate"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [PlaylistItems sortedArrayUsingDescriptors:sortDescriptors];
+    
     
     // now select some music items
     // consider changing strategy to match podcast
