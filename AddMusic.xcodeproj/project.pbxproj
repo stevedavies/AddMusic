@@ -95,9 +95,9 @@
 				F493010E1AA0068B009B5669 /* MediaLibraryStats.h */,
 				F493010F1AA0068B009B5669 /* MediaLibraryStats.m */,
 				F4F77ED71ABD06F400D46582 /* MediaLibraryCleanup.h */,
+				F4F77ED81ABD06F400D46582 /* MediaLibraryCleanup.m */,
 				D51C5FB51AFAD2620052C927 /* MediaPlayerWorker.h */,
 				D51C5FB61AFAD2620052C927 /* MediaPlayerWorker.m */,
-				F4F77ED81ABD06F400D46582 /* MediaLibraryCleanup.m */,
 				580748700FAA6E1600373EAF /* MusicTableViewController.h */,
 				580748710FAA6E1600373EAF /* MusicTableViewController.m */,
 			);
