@@ -153,7 +153,9 @@ void audioRouteChangeListenerCallback (
 - (IBAction) ClearPartiallyPlayed: (id) sender {
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
     MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Bloomberg"];
-    [Temp SetToEnd:PartiallyPlayedList] ;  //<<<<<<<<<<<<<--------------------------------------------------------------Working Here
+    [Temp SetToEnd:PartiallyPlayedList];
+    PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Taking Stock"];
+    [Temp SetToEnd:PartiallyPlayedList];
 }
 
 // move playback position to end for all with certain Title / Album
