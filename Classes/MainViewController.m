@@ -139,7 +139,7 @@ void audioRouteChangeListenerCallback (
 // create a playslit of partially played itmes and start playback
 - (IBAction) CreatePlaylistAndPlay: (id) sender {
     //////////////////////
-    MPMediaItemCollection *Playlist = [ MediaItemCollectionCreator MakePlaylist];
+    MPMediaItemCollection *Playlist = [MediaItemCollectionCreator MakePlaylist: @"EconTalk"];
     //////////////////////
     //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
     userMediaItemCollection = Playlist;

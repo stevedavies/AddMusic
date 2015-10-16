@@ -35,7 +35,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     return Playlist;
 }
 
-+ (MPMediaItemCollection*) MakePlaylist{
++ (MPMediaItemCollection*) MakePlaylist: (NSString*) Album  {
     int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
     int PlaylistItemsCount=0;
@@ -53,7 +53,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
                                                forProperty: MPMediaItemPropertyMediaType
                                                comparisonType: MPMediaPredicateComparisonEqualTo];
     MPMediaPropertyPredicate *titlePredicate = [MPMediaPropertyPredicate
-                                                predicateWithValue: @"EconTalk"
+                                                predicateWithValue: Album
                                                 forProperty: MPMediaItemPropertyAlbumTitle
                                                 comparisonType: MPMediaPredicateComparisonContains];
     [myPodcastsQuery addFilterPredicate: typePredicate];
@@ -72,10 +72,11 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
+        NSString *itemComment = [item valueForProperty:MPMediaItemPropertyComments];
         
         if(TypeValue == 2 & BookmarkValue > 0) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
-            // ADD itme to MutableArray here
+            // ADD item to MutableArray here
             [PlaylistItems addObject:item];
             partiallyPlayedCount++;
             PlaylistItemsCount++;

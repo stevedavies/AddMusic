@@ -23,18 +23,18 @@ static NSString *kCellIdentifier = @"Cell";
 // Configures the table view.
 - (void) viewDidLoad {
 
-    [super viewDidLoad];
+    //[super viewDidLoad];
 	
-	[self.addMusicButton setTitle: NSLocalizedString (@"AddMusicFromTableView", @"Add button shown on table view for invoking the media item picker")];
+	//[self.addMusicButton setTitle: NSLocalizedString (@"AddMusicFromTableView", @"Add button shown on table view for invoking the media item picker")];
 	
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];      
+    //self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
 
 // When the user taps Done, invokes the delegate's method that dismisses the table view.
 - (IBAction) doneShowingMusicList: (id) sender {
 
-	[self.delegate musicTableViewControllerDidFinish: self];	
+	[self.delegate musicTableViewControllerDidFinish: self];
 }
 
 
@@ -50,8 +50,8 @@ static NSString *kCellIdentifier = @"Cell";
 	
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
 
-	[self presentModalViewController: picker animated: YES];
-	[picker release];
+	//[self presentModalViewController: picker animated: YES];
+	//[picker release];
 }
 
 
