@@ -35,8 +35,8 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     return Playlist;
 }
 
-+ (MPMediaItemCollection*) MakePlaylist: (NSString*) Album
-                               Playlist:(NSMutableArray *) PlaylistItems
++ (void) AddPodcastsToPlaylist: (NSString*) Album
+                               Playlist: (NSMutableArray *) PlaylistItems
 {
     int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
@@ -73,11 +73,10 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
-        //NSString *itemComment = [item valueForProperty:MPMediaItemPropertyComments];
+        //NSString*itemComment = [item valueForProperty:MPMediaItemPropertyComments];
         
         if(TypeValue == 2 & BookmarkValue > 0) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
-            // ADD item to MutableArray here
             [PlaylistItems addObject:item];
             partiallyPlayedCount++;
             PlaylistItemsCount++;
@@ -93,6 +92,26 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     sortedArray = [PlaylistItems sortedArrayUsingDescriptors:sortDescriptors];
     
     
+    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
+    
+    // create a playlist here
+    //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);
+}
+
++ (void) AddMusicPlaylist: (NSString*) MusicPlaylistName
+          Playlist: (NSMutableArray *) PlaylistItems
+{
+    int PodcastQueryItemsCount=0;
+
+    int PlaylistItemsCount=0;
+    int PlaylistsCount=0;
+    int SongsCount=0;
+    
     // now select some music items
     // consider changing strategy to match podcast
     
@@ -106,13 +125,13 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     for (MPMediaPlaylist *playlist in playlists)
     {
         printf("%s", [[NSString stringWithFormat:@"\nPlaylists Name: %@", [playlist valueForProperty: MPMediaPlaylistPropertyName]] UTF8String]);
-
+        
         NSArray *songslist = [playlist items];
         SongsCount =[songslist count];
         printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],SongsCount] UTF8String]);
         // match on Ride Music 2    <<<<<-----
         // enumerates each item
-        if ([[playlist name]  isEqual: @"Ride Music 2"])
+        if ([[playlist name]  isEqual: MusicPlaylistName])
         {
             for (MPMediaItem *song in songslist)
             {
@@ -124,15 +143,10 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         }
     }
     printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
-    
-    // create a playlist here
-    MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
-    
+
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);
-    return Playlist;
 }
 
 @end

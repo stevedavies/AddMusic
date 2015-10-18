@@ -139,10 +139,11 @@ void audioRouteChangeListenerCallback (
 // create a playslit of partially played itmes and start playback
 - (IBAction) CreatePlaylistAndPlay: (id) sender {
     //////////////////////
-    MPMediaItemCollection *Playlist = [[NSMutableArray alloc] init];
-    Playlist = [MediaItemCollectionCreator MakePlaylist: @"EconTalk" Playlist:Playlist];
-    Playlist = [MediaItemCollectionCreator MakePlaylist: @"Bloomberg Law" Playlist:Playlist];
-    
+    NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"EconTalk" Playlist:WorkingSet];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Law" Playlist:WorkingSet];
+    //[MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
+    MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     //////////////////////
     //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
     userMediaItemCollection = Playlist;

@@ -10,5 +10,6 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface MediaItemCollectionCreator : NSObject
-+(MPMediaItemCollection *) MakePlaylist:(NSString*) Album Playlist:(MPMediaItemCollection*) Playlist;
++ (void) AddPodcastsToPlaylist:(NSString*) Album Playlist:(MPMediaItemCollection*) Playlist;
++ (void) AddMusicPlaylist:(NSString*) MusicPlaylistName Playlist:(MPMediaItemCollection*) Playlist;
 @end
