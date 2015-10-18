@@ -35,14 +35,15 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     return Playlist;
 }
 
-+ (MPMediaItemCollection*) MakePlaylist: (NSString*) Album  {
++ (MPMediaItemCollection*) MakePlaylist: (NSString*) Album
+                               Playlist:(NSMutableArray *) PlaylistItems
+{
     int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
     int PlaylistItemsCount=0;
     int PlaylistsCount=0;
     int SongsCount=0;
-    NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
-    
+   
     //MPMediaQuery *everything = [[MPMediaQuery alloc] init];
     printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
     MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
@@ -72,7 +73,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
-        NSString *itemComment = [item valueForProperty:MPMediaItemPropertyComments];
+        //NSString *itemComment = [item valueForProperty:MPMediaItemPropertyComments];
         
         if(TypeValue == 2 & BookmarkValue > 0) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
