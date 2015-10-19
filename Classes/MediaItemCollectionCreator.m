@@ -22,21 +22,11 @@ NSString *const MPMediaItemPropertyBookmarkTime;
  */
 
 @implementation MediaItemCollectionCreator
-+ (MPMediaItemCollection*) AddPodcast: (MPMediaItemCollection*) Playlist
-                              orderBy: (NSString*) Order
-                          numberToAdd: (NSInteger*) Count
-{
-    
-    return Playlist;
-}
-
-+ (MPMediaItemCollection*) AdddMusic: (MPMediaItemCollection*) Playlist{
-    
-    return Playlist;
-}
 
 + (void) AddPodcastsToPlaylist: (NSString*) Album
-                               Playlist: (NSMutableArray *) PlaylistItems
+                      Playlist: (NSMutableArray *) PlaylistItems
+                       orderBy: (NSString*) Order
+                   numberToAdd: (NSInteger*) Count
 {
     int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
@@ -60,8 +50,16 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     [myPodcastsQuery addFilterPredicate: typePredicate];
     [myPodcastsQuery addFilterPredicate: titlePredicate];
     [myPodcastsQuery setGroupingType: MPMediaGroupingAlbum];
-    
     NSArray *itemsFromGenericQuery = [myPodcastsQuery items];
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"releaseDate"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [itemsFromGenericQuery sortedArrayUsingDescriptors:sortDescriptors];
+    
+    
     for (MPMediaItem *item in itemsFromGenericQuery) {
         
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
@@ -75,7 +73,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
         //NSString*itemComment = [item valueForProperty:MPMediaItemPropertyComments];
         
-        if(TypeValue == 2 & BookmarkValue > 0) {
+        if(TypeValue == 2 & BookmarkValue >= 0) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
             [PlaylistItems addObject:item];
             partiallyPlayedCount++;
@@ -84,15 +82,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         PodcastQueryItemsCount++;
     }
     
-    NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"releaseDate"
-                                                 ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray;
-    sortedArray = [PlaylistItems sortedArrayUsingDescriptors:sortDescriptors];
-    
-    
-    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
     
     // create a playlist here
     //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];

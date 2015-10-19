@@ -142,7 +142,7 @@ void audioRouteChangeListenerCallback (
     NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
     [MediaItemCollectionCreator AddPodcastsToPlaylist: @"EconTalk" Playlist:WorkingSet];
     [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Law" Playlist:WorkingSet];
-    //[MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
+    [MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
     MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     //////////////////////
     //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
