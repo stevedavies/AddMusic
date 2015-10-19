@@ -196,6 +196,10 @@ void audioRouteChangeListenerCallback (
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"60 Minutes"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
     [MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
     MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     //////////////////////
