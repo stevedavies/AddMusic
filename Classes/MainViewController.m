@@ -140,8 +140,14 @@ void audioRouteChangeListenerCallback (
 - (IBAction) CreatePlaylistAndPlay: (id) sender {
     //////////////////////
     NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"EconTalk" Playlist:WorkingSet];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Law" Playlist:WorkingSet];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist:@"EconTalk"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Law"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
     [MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
     MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     //////////////////////

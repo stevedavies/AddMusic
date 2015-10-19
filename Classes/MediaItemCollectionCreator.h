@@ -13,8 +13,9 @@
 
 + (void) AddPodcastsToPlaylist:(NSString*) Album
                       Playlist:(NSMutableArray*) Playlist
-                       orderBy: (NSString*) Order
-                   numberToAdd: (NSInteger*) Count;
+                       OrderBy: (BOOL) Order
+                   NumberToAdd: (NSInteger) NumberToAdd;
+
 
 + (void) AddMusicPlaylist:(NSString*) MusicPlaylistName
                  Playlist:(NSMutableArray*) Playlist;

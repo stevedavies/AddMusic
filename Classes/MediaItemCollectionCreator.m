@@ -25,8 +25,9 @@ NSString *const MPMediaItemPropertyBookmarkTime;
 
 + (void) AddPodcastsToPlaylist: (NSString*) Album
                       Playlist: (NSMutableArray *) PlaylistItems
-                       orderBy: (NSString*) Order
-                   numberToAdd: (NSInteger*) Count
+                       OrderBy: (BOOL) Order
+                   NumberToAdd: (NSInteger) NumberToAdd
+
 {
     int PodcastQueryItemsCount=0;
     int partiallyPlayedCount=0;
@@ -60,7 +61,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     sortedArray = [itemsFromGenericQuery sortedArrayUsingDescriptors:sortDescriptors];
     
     
-    for (MPMediaItem *item in itemsFromGenericQuery) {
+    for (MPMediaItem *item in sortedArray) { // was -> itemsFromGenericQuery
         
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
         NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
@@ -73,7 +74,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
         //NSString*itemComment = [item valueForProperty:MPMediaItemPropertyComments];
         
-        if(TypeValue == 2 & BookmarkValue >= 0) {
+        if(TypeValue == 2 & BookmarkValue >= 0 && PlaylistItemsCount < NumberToAdd) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
             [PlaylistItems addObject:item];
             partiallyPlayedCount++;
@@ -87,10 +88,10 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     // create a playlist here
     //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
     
-    printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of items matching query: %d",PodcastQueryItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber added to Playlist: %d", PlaylistItemsCount] UTF8String]);
 }
 
 + (void) AddMusicPlaylist: (NSString*) MusicPlaylistName
