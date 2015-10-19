@@ -33,10 +33,8 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     int partiallyPlayedCount=0;
     int PlaylistItemsCount=0;
     int PlaylistsCount=0;
-    int SongsCount=0;
    
-    //MPMediaQuery *everything = [[MPMediaQuery alloc] init];
-    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery %@:",Album] UTF8String]);
     MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
     
     // see MediaLibraryStats.h for a list of media item properties
@@ -61,7 +59,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     sortedArray = [itemsFromGenericQuery sortedArrayUsingDescriptors:sortDescriptors];
     
     
-    for (MPMediaItem *item in sortedArray) { // was -> itemsFromGenericQuery
+    for (MPMediaItem *item in sortedArray) {
         
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
         NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
@@ -72,39 +70,29 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
-        //NSString*itemComment = [item valueForProperty:MPMediaItemPropertyComments];
+        //NSString*itemDescription = [item valueForProperty:MPMediaItemPropertyDescription];
         
-        if(TypeValue == 2 & BookmarkValue >= 0 && PlaylistItemsCount < NumberToAdd) {
-            printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount] UTF8String]);
+        if(TypeValue == 2 & BookmarkValue >= 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0) {
+            printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@ Release:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount,ReleaseDate] UTF8String]);
             [PlaylistItems addObject:item];
-            partiallyPlayedCount++;
             PlaylistItemsCount++;
         };
         PodcastQueryItemsCount++;
     }
-    
-        printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
-    
-    // create a playlist here
-    //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
-    
+    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items matching query: %d",PodcastQueryItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber added to Playlist: %d", PlaylistItemsCount] UTF8String]);
+    // playlist returned by reference
 }
 
 + (void) AddMusicPlaylist: (NSString*) MusicPlaylistName
           Playlist: (NSMutableArray *) PlaylistItems
 {
     int PodcastQueryItemsCount=0;
-
     int PlaylistItemsCount=0;
     int PlaylistsCount=0;
     int SongsCount=0;
-    
-    // now select some music items
-    // consider changing strategy to match podcast
     
     // enumerate playlists
     MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
@@ -120,9 +108,8 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSArray *songslist = [playlist items];
         SongsCount =[songslist count];
         printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],SongsCount] UTF8String]);
-        // match on Ride Music 2    <<<<<-----
-        // enumerates each item
-        if ([[playlist name]  isEqual: MusicPlaylistName])
+
+        if ([[playlist name]  isEqual: MusicPlaylistName])  // match on Ride Music 2    <<<<<-----
         {
             for (MPMediaItem *song in songslist)
             {
@@ -134,7 +121,6 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         }
     }
     printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
-
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);

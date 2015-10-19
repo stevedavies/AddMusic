@@ -144,7 +144,55 @@ void audioRouteChangeListenerCallback (
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Accidental Tech"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Advantage"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Cortex"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Economist"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Intelligence Squared"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"ITV"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Living the RV Dream"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Planet Money"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"TED Radio Hour"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Surveillance"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Taking Stock"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
     [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Law"
+                                             Playlist:WorkingSet
+                                              OrderBy:YES
+                                          NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"This American Life"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
