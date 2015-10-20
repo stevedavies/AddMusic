@@ -11,7 +11,7 @@ Abstract: main.m file for AddMusic.
 int main(int argc, char *argv[]) {
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    int retVal = UIApplicationMain(argc, argv, nil, @"AddMusicAppDelegate");
     [pool release];
     return retVal;
 }

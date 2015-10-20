@@ -16,8 +16,19 @@ Abstract: Application delegate class for AddMusic.
 
 - (void) applicationDidFinishLaunching: (UIApplication *) application {
 
-	[window addSubview: [mainViewController view]];
+	//[window addSubview: [mainViewController view]];
+    [self.window setRootViewController:mainViewController];
     [window makeKeyAndVisible];
+    
+    self.session = [AVAudioSession sharedInstance];
+    
+    NSError* error = NULL;
+    [self.session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [self.session setActive:YES error:&error];
+    
+    if (error) {
+        NSLog(@"AVAudioSession error: %@", [error localizedDescription]);
+    }
 }
 
 

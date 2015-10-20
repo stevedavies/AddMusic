@@ -36,6 +36,9 @@ to and manages user interaction.
 @synthesize MoveZeroButton;
 @synthesize StatsButton;
 @synthesize ClearPartiallyPlayedButton;
+@synthesize ppButton;
+@synthesize nnButton;
+@synthesize ClearByTitleButton;
 
 @synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
 @synthesize soundFileURL;				// The path to the application sound
@@ -329,19 +332,7 @@ void audioRouteChangeListenerCallback (
 
 		// If there's no playback queue yet...
 		if (userMediaItemCollection == nil) {
-		
-			// apply the new media item collection as a playback queue for the music player
-            // LOOK
-            
-            //////////////////////
-            MPMediaItemCollection *PartiallyPlayedList = [ MediaItemCollectionCreator MakePlaylist];
-            //////////////////////
-            
-			[self setUserMediaItemCollection: mediaItemCollection];
-			[musicPlayer setQueueWithItemCollection: userMediaItemCollection];
-			[musicPlayer setQueueWithItemCollection: PartiallyPlayedList];
-            [self setPlayedMusicOnce: YES];
-			[musicPlayer play];
+                // testing area for early playlist
 
 		// Obtain the music player's state so it can then be
 		//		restored after updating the playback queue.
@@ -702,13 +693,9 @@ void audioRouteChangeListenerCallback (
 - (void) viewDidLoad {
 
     [super viewDidLoad];
-
 	[self setupApplicationAudio];
-	
 	[self setPlayedMusicOnce: NO];
-
-	[self setNoArtworkImage:	[UIImage imageNamed: @"no_artwork.png"]];		
-
+	[self setNoArtworkImage:	[UIImage imageNamed: @"no_artwork.png"]];
 	[self setPlayBarButton:		[[UIBarButtonItem alloc]	initWithBarButtonSystemItem: UIBarButtonSystemItemPlay
 																				 target: self
 																				 action: @selector (playOrPauseMusic:)]];
@@ -724,12 +711,14 @@ void audioRouteChangeListenerCallback (
 							forState: UIControlStateNormal];
 
 	[nowPlayingLabel setText: NSLocalizedString (@"Instructions", @"Brief instructions to user, shown at launch")];
+    
 	
 	// Instantiate the music player. If you specied the iPod music player in the Settings app,
 	//		honor the current state of the built-in iPod app.
 	if ([self useiPodPlayer]) {
 	
-		[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
+		//[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
+        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
 		
 		if ([musicPlayer nowPlayingItem]) {
 		
@@ -754,31 +743,56 @@ void audioRouteChangeListenerCallback (
 	}	
 
 	[self registerForMediaPlayerNotifications];
-
-	// Configure a timer to change the background color. The changing color represents an 
-	//		application that is doing something else while iPod music is playing.
-	/*[self setBackgroundColorTimer: [NSTimer scheduledTimerWithTimeInterval: 3.5
-																	target: self
-																  selector: @selector (updateBackgroundColor)
-																  userInfo: nil
-																   repeats: YES]];*/
+    
 }
 
-// Invoked by the backgroundColorTimer.
-- (void) updateBackgroundColor {
+// Process remote control events
+- (void) remoteControlReceivedWithEvent:(UIEvent *)event {
+    
+    NSLog(@"AudioPlayerViewController ... remoteControlReceivedWithEvent top ....subtype: %d", event.subtype);
+    
+    if (event.type == UIEventTypeRemoteControl) {
+        
+        switch (event.subtype) {
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [musicPlayer pause];
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                [musicPlayer pause];
+                break;
+            case UIEventSubtypeRemoteControlStop:
+                [musicPlayer pause];
+                break;
+            case UIEventSubtypeRemoteControlPlay:
+                [musicPlayer play];
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [musicPlayer skipToPreviousItem];
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                [musicPlayer skipToNextItem];
+                break;
+            default:
+                break;
+        }
+    }
 
-	[UIView beginAnimations: nil context: nil];
-    [UIView setAnimationDuration: 3.0];
+}
 
-	CGFloat redLevel	= rand() / (float) RAND_MAX;
-	CGFloat greenLevel	= rand() / (float) RAND_MAX;
-	CGFloat blueLevel	= rand() / (float) RAND_MAX;
-	
-	self.view.backgroundColor = [UIColor colorWithRed: redLevel
-												green: greenLevel
-												 blue: blueLevel
-												alpha: 1.0];
-	[UIView commitAnimations];
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
+}
+
+- (BOOL) canBecomeFirstResponder {
+    return YES;
 }
 
 #pragma mark Application state management_____________

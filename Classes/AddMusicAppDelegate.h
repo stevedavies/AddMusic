@@ -7,6 +7,8 @@ Abstract: Application delegate class for AddMusic.
 
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVAudioSession.h>
+#import <AVFoundation/AVPlayer.h>
 
 @class MainViewController;
 
@@ -18,6 +20,8 @@ Abstract: Application delegate class for AddMusic.
 
 @property (nonatomic, retain) IBOutlet UIWindow				*window;
 @property (nonatomic, retain) IBOutlet MainViewController	*mainViewController;
-
+// working on bluetooth
+@property (nonatomic, retain) IBOutlet AVAudioSession       *session;
+@property (nonatomic, retain) IBOutlet AVPlayer             *audioPlayer;
 @end
 
