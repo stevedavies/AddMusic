@@ -573,7 +573,6 @@ void audioRouteChangeListenerCallback (
 }
 
 
-
 #pragma mark Table view delegate methods________________
 
 // Invoked when the user taps the Done button in the table view.

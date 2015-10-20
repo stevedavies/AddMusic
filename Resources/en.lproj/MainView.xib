@@ -16,8 +16,7 @@
                 <outlet property="MoveZeroButton" destination="70" id="73"/>
                 <outlet property="Plus30Button" destination="69" id="77"/>
                 <outlet property="StatsButton" destination="79" id="81"/>
-                <outlet property="addOrShowMusicButton" destination="50" id="53"/>
-                <outlet property="appSoundButton" destination="43" id="54"/>
+                <outlet property="addOrShowMusicButton" destination="oa9-17-kKN" id="Qmb-Rl-AsG"/>
                 <outlet property="navigationBar" destination="4" id="19"/>
                 <outlet property="nnButton" destination="64" id="83"/>
                 <outlet property="nowPlayingLabel" destination="41" id="58"/>
@@ -42,50 +41,6 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43">
-                    <rect key="frame" x="23" y="454" width="130" height="36"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="130" id="6cu-CY-yM2"/>
-                        <constraint firstAttribute="height" constant="36" id="eke-cV-wXc"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled">
-                        <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="playAppSound:" destination="-1" eventType="touchUpInside" id="47"/>
-                    </connections>
-                </button>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50">
-                    <rect key="frame" x="167" y="454" width="130" height="36"/>
-                    <accessibility key="accessibilityConfiguration" label=""/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="130" id="FdQ-rX-xBR"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                    <state key="normal" title="Show Queue">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled">
-                        <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </state>
-                    <attributedString key="userComments">
-                        <fragment content="dfd">
-                            <attributes>
-                                <font key="NSFont" metaFont="controlContent" size="11"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <connections>
-                        <action selector="AddMusicOrShowMusic:" destination="-1" eventType="touchUpInside" id="57"/>
-                    </connections>
-                </button>
                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Now Playing" lineBreakMode="tailTruncation" minimumFontSize="10" enabled="NO" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41">
                     <rect key="frame" x="8" y="496" width="320" height="21"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -227,6 +182,50 @@
                         <action selector="Plus30sec:" destination="-2" eventType="touchUpInside" id="78"/>
                     </connections>
                 </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g70-NF-IpH">
+                    <rect key="frame" x="25" y="443" width="130" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="PEn-gG-t1y"/>
+                        <constraint firstAttribute="height" constant="36" id="dSE-JC-qd0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                    <state key="normal" title="Play App Sound">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="playAppSound:" destination="-1" eventType="touchUpInside" id="odu-cC-Yh3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa9-17-kKN">
+                    <rect key="frame" x="162" y="443" width="130" height="36"/>
+                    <accessibility key="accessibilityConfiguration" label=""/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="SlN-Z9-0ik"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                    <state key="normal" title="Show Queue">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <attributedString key="userComments">
+                        <fragment content="dfd">
+                            <attributes>
+                                <font key="NSFont" metaFont="controlContent" size="11"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <connections>
+                        <action selector="AddMusicOrShowMusic:" destination="-2" eventType="touchUpInside" id="YVY-KW-T0w"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -242,30 +241,27 @@
                 <constraint firstItem="65" firstAttribute="top" secondItem="63" secondAttribute="bottom" constant="8" symbolic="YES" id="IG8-jf-vGZ"/>
                 <constraint firstItem="69" firstAttribute="baseline" secondItem="72" secondAttribute="baseline" id="Igm-Ph-rzb"/>
                 <constraint firstItem="63" firstAttribute="top" secondItem="1" secondAttribute="top" constant="259" id="JAF-0E-3Ug"/>
+                <constraint firstItem="oa9-17-kKN" firstAttribute="top" secondItem="g70-NF-IpH" secondAttribute="top" id="K9t-Qi-1Lu"/>
                 <constraint firstItem="87" firstAttribute="top" secondItem="1" secondAttribute="top" constant="147" id="NlK-X0-JiK"/>
                 <constraint firstItem="67" firstAttribute="leading" secondItem="65" secondAttribute="trailing" constant="8" symbolic="YES" id="P3g-c5-2Qn"/>
                 <constraint firstItem="41" firstAttribute="leading" secondItem="1" secondAttribute="leadingMargin" id="Poe-5a-nWQ"/>
                 <constraint firstItem="72" firstAttribute="centerX" secondItem="90" secondAttribute="centerX" id="RUl-yH-Bwf"/>
                 <constraint firstItem="90" firstAttribute="top" secondItem="87" secondAttribute="bottom" constant="8" symbolic="YES" id="SgX-UT-Qzv"/>
                 <constraint firstItem="4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="VJ0-1b-FZk"/>
-                <constraint firstItem="50" firstAttribute="top" secondItem="43" secondAttribute="top" id="WcS-nP-2H9"/>
+                <constraint firstItem="oa9-17-kKN" firstAttribute="bottom" secondItem="g70-NF-IpH" secondAttribute="bottom" id="XEs-MO-uu4"/>
                 <constraint firstItem="67" firstAttribute="leading" secondItem="70" secondAttribute="leading" id="XZc-pC-6KC"/>
                 <constraint firstItem="70" firstAttribute="trailing" secondItem="59" secondAttribute="trailing" id="YIU-NQ-eyT"/>
                 <constraint firstItem="69" firstAttribute="centerX" secondItem="79" secondAttribute="centerX" id="byL-dp-beK"/>
-                <constraint firstItem="50" firstAttribute="bottom" secondItem="43" secondAttribute="bottom" id="cNp-mc-KFE"/>
                 <constraint firstItem="63" firstAttribute="baseline" secondItem="70" secondAttribute="baseline" id="cpp-dS-PEu"/>
-                <constraint firstItem="43" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="23" id="ix6-dA-1NJ"/>
                 <constraint firstItem="66" firstAttribute="baseline" secondItem="69" secondAttribute="baseline" id="j17-r5-rwE"/>
                 <constraint firstItem="59" firstAttribute="top" secondItem="1" secondAttribute="top" constant="97" id="kgN-zi-CeL"/>
                 <constraint firstItem="59" firstAttribute="top" secondItem="79" secondAttribute="top" id="mFN-o9-dul"/>
-                <constraint firstAttribute="bottom" secondItem="43" secondAttribute="bottom" constant="35" id="mJu-8f-imH"/>
                 <constraint firstItem="72" firstAttribute="baseline" secondItem="67" secondAttribute="baseline" id="nFA-8Q-HTk"/>
                 <constraint firstItem="72" firstAttribute="leading" secondItem="67" secondAttribute="trailing" constant="8" symbolic="YES" id="pPX-nn-kqC"/>
                 <constraint firstItem="67" firstAttribute="baseline" secondItem="65" secondAttribute="baseline" id="rAB-5X-jRG"/>
                 <constraint firstItem="65" firstAttribute="leading" secondItem="63" secondAttribute="leading" id="sGW-hJ-fdJ"/>
                 <constraint firstItem="71" firstAttribute="baseline" secondItem="64" secondAttribute="baseline" id="vfg-3Q-BEM"/>
                 <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="xvF-rZ-8Jh"/>
-                <constraint firstAttribute="trailing" secondItem="50" secondAttribute="trailing" constant="23" id="yua-Ds-75E"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
