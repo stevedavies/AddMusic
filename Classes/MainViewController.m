@@ -6,6 +6,20 @@ to and manages user interaction.
 
 */
 
+/*
+ >>>>>>>>>>>  TO DO  <<<<<<<<<<<
+ check on skip count
+ create a %full progress bar - number of 0 play podcasts as a percentage of (0 play + songs)
+ skip ovre podcasts with play count > 0 (may require handling events)
+ change controls
+ move artwork
+ fix constraints
+ fix window size problem after show queue
+ delete play app sound
+ */
+
+
+
 #import "MainViewController.h"
 #import <Foundation/Foundation.h>
 #import "MediaItemCollectionCreator.h"
@@ -718,7 +732,8 @@ void audioRouteChangeListenerCallback (
 	if ([self useiPodPlayer]) {
 	
 		//[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
-        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
+        //[self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
+        [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
 		
 		if ([musicPlayer nowPlayingItem]) {
 		
@@ -733,8 +748,10 @@ void audioRouteChangeListenerCallback (
 		}
 		
 	} else {
-	
-		[self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
+        
+        //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
+        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
+		//[self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
 		
 		// By default, an application music player takes on the shuffle and repeat modes
 		//		of the built-in iPod app. Here they are both turned off.
