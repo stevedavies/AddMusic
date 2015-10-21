@@ -59,20 +59,20 @@ static NSString *kCellIdentifier = @"Cell";
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection {
   
     
-	[self dismissModalViewControllerAnimated: YES];
+    [self dismissViewControllerAnimated: YES completion:nil];
 	//[self.delegate updatePlayerQueueWithMediaCollection: mediaItemCollection];
 	[self.mediaItemCollectionTable reloadData];
 
-	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent animated:YES];
 }
 
 
 // Responds to the user tapping done having chosen no music.
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
 
-	[self dismissModalViewControllerAnimated: YES];
+	[self dismissViewControllerAnimated: NO completion: nil];
 
-	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent animated:YES];
 }
 
 
@@ -96,7 +96,7 @@ static NSString *kCellIdentifier = @"Cell";
 	
 	if (cell == nil) {
 	
-		cell = [[[UITableViewCell alloc] initWithFrame: CGRectZero 
+		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault //was initWithFrame: CGRectZero
 									   reuseIdentifier: kCellIdentifier] autorelease];
 	}
 	

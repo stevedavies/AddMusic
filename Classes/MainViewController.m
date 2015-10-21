@@ -299,8 +299,9 @@ void audioRouteChangeListenerCallback (
 		
 		controller.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 		
-		[self presentModalViewController: controller animated: YES];
-		[controller release];
+		//[self presentModalViewController: controller animated: YES];
+        [self presentViewController:controller animated:NO completion:nil];
+        [controller release];
 
 	// else, if no music is chosen yet, display the media item picker
 	} else {
@@ -316,7 +317,7 @@ void audioRouteChangeListenerCallback (
 		//		status bar to match it visually
 		[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated: YES];
 		
-		[self presentModalViewController: picker animated: YES];
+        [self presentViewController: picker animated: YES completion:nil];
 		[picker release];
 	}
 }
@@ -408,21 +409,21 @@ void audioRouteChangeListenerCallback (
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection {
   
 	// Dismiss the media item picker.
-	[self dismissModalViewControllerAnimated: YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 	
 	// Apply the chosen songs to the music player's queue.
 	[self updatePlayerQueueWithMediaCollection: mediaItemCollection];
 
-	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated: YES];
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent animated: YES];
 }
 
 // Invoked when the user taps the Done button in the media item picker having chosen zero
 //		media items to play
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
 
-	[self dismissModalViewControllerAnimated: YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 	
-	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated: YES];
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent animated: YES];
 }
 
 
@@ -578,7 +579,7 @@ void audioRouteChangeListenerCallback (
 // Invoked when the user taps the Done button in the table view.
 - (void) musicTableViewControllerDidFinish: (MusicTableViewController *) controller {
 	
-	[self dismissModalViewControllerAnimated: YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 	[self restorePlaybackState];
 }
 
