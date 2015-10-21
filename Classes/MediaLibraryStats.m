@@ -63,13 +63,13 @@
     // enumerate playlists
     MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
     NSArray *playlists = [myPlaylistsQuery collections];
-    PlaylistsCount=[playlists count];
+    PlaylistsCount=(int)[playlists count];
     printf("%s", [[NSString stringWithFormat:@"\n\nPlaylist Information:"] UTF8String]);
     for (MPMediaPlaylist *playlist in playlists)
     {
         //NSLog (@"%@", [playlist valueForProperty: MPMediaPlaylistPropertyName]);
         NSArray *songslist = [playlist items];
-        printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],[songslist count]] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],(int)[songslist count]] UTF8String]);
         // enumerates each item
         /*for (MPMediaItem *song in songslist)
         {
@@ -116,7 +116,7 @@
         
         
         NSArray *songs = [album items];
-        printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %d", albumTitle, [songs count]] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %lu", albumTitle, (unsigned long)[songs count]] UTF8String]);
         /*
          // print each episode
         for (MPMediaItem *song in songs) {
@@ -126,8 +126,8 @@
         }
          */
     }
-    printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %d", [albums count]] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %lu", [myPodcastsQuery.items count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     ////////////////////////////////
 }

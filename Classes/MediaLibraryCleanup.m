@@ -41,7 +41,7 @@
         
         
         NSArray *songs = [album items];
-        printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %d", albumTitle, [songs count]] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %lu", albumTitle, (unsigned long)[songs count]] UTF8String]);
         
         // print each episode
         
@@ -60,9 +60,9 @@
             }
         }
     }
-    printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %d", [albums count]] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %d", [PlaylistItems count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %lu", [myPodcastsQuery.items count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %lu", (unsigned long)[PlaylistItems count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     MPMediaItemCollection *PartiallyPlayedList;
     if(PlaylistItems.count>0) {
@@ -109,7 +109,7 @@
         NSArray *albums = [myPodcastsQuery collections];
         //NSArray *allItems = [myPodcastsQuery items]; // all items are also in this property
     if(albums != nil && albums.count!=0) {
-        printf("%s", [[NSString stringWithFormat:@"\nQuery returned:%d",albums.count] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nQuery returned:%lu",(unsigned long)albums.count] UTF8String]);
     for (MPMediaItemCollection *album in albums) {
             MPMediaItem *representativeItem = [album representativeItem];
             //representativeItem.album
@@ -118,7 +118,7 @@
             
             
             NSArray *songs = [album items];
-            printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %d", albumTitle, [songs count]] UTF8String]);
+            printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %lu", albumTitle, (unsigned long)[songs count]] UTF8String]);
             
             // print each episode
             
@@ -138,9 +138,9 @@
             }
         }
     }
-        printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %d", [albums count]] UTF8String]);
-        printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %d", [myPodcastsQuery.items count]] UTF8String]);
-        printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %d", [PlaylistItems count]] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %lu", [myPodcastsQuery.items count]] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %lu", (unsigned long)[PlaylistItems count]] UTF8String]);
         printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     if(PlaylistItems != nil && PlaylistItems.count!=0) {
     ClearByTitleList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];

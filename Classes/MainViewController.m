@@ -238,31 +238,31 @@ void audioRouteChangeListenerCallback (
 // move playback position back 30 seconds
 - (IBAction) PP: (id) sender {
     [musicPlayer skipToPreviousItem];
-    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position back 30 seconds
 - (IBAction) NN: (id) sender {
     [musicPlayer skipToNextItem];
-    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position back 30 seconds
 - (IBAction) Minus30sec: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-30)];
-    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position forward 30 seconds
 - (IBAction) Plus30sec: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+30)];
-    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position to beginning
 - (IBAction) MoveZero: (id) sender {
     [musicPlayer setCurrentPlaybackTime:(0)];
-    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position to END
@@ -271,7 +271,7 @@ void audioRouteChangeListenerCallback (
     NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
     double BookmarkValue = [timevalue doubleValue];
     [musicPlayer setCurrentPlaybackTime:(BookmarkValue)];
-    NSLog(@"Index:%d",[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
     NSLog(@"Setting bookmark to END:%f",BookmarkValue);
 }
 
@@ -749,7 +749,7 @@ void audioRouteChangeListenerCallback (
 // Process remote control events
 - (void) remoteControlReceivedWithEvent:(UIEvent *)event {
     
-    NSLog(@"AudioPlayerViewController ... remoteControlReceivedWithEvent top ....subtype: %d", event.subtype);
+    NSLog(@"AudioPlayerViewController ... remoteControlReceivedWithEvent top ....subtype: %ld", (long)event.subtype);
     
     if (event.type == UIEventTypeRemoteControl) {
         

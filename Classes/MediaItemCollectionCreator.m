@@ -91,8 +91,8 @@ NSString *const MPMediaItemPropertyBookmarkTime;
 {
     int PodcastQueryItemsCount=0;
     int PlaylistItemsCount=0;
-    int PlaylistsCount=0;
-    int SongsCount=0;
+    NSUInteger PlaylistsCount=0;
+    NSUInteger SongsCount=0;
     
     // enumerate playlists
     MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
@@ -107,7 +107,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         
         NSArray *songslist = [playlist items];
         SongsCount =[songslist count];
-        printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],SongsCount] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%lu",[playlist name],(unsigned long)SongsCount] UTF8String]);
 
         if ([[playlist name]  isEqual: MusicPlaylistName])  // match on Ride Music 2    <<<<<-----
         {
@@ -120,9 +120,9 @@ NSString *const MPMediaItemPropertyBookmarkTime;
             }
         }
     }
-    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"Playlists Count: %lu", (unsigned long)PlaylistsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",PodcastQueryItemsCount] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %lu",(unsigned long)SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPlaylist Items: %d", PlaylistItemsCount] UTF8String]);
 }
 

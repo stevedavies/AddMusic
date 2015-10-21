@@ -22,7 +22,7 @@
     [musicPlayer play];
     
     // iterate through list and set playback to end-1
-    int ct = [PlayList count];
+    NSUInteger ct = [PlayList count];
     for (int i = 1; i <= ct; i++){
         MPMediaItem  *item =[musicPlayer nowPlayingItem];
         
