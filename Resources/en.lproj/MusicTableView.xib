@@ -18,15 +18,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="555"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="10">
-                    <rect key="frame" x="0.0" y="44" width="320" height="306"/>
+                <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                    <rect key="frame" x="0.0" y="44" width="320" height="511"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="13"/>
                         <outlet property="delegate" destination="-1" id="14"/>
                     </connections>
                 </tableView>
-                <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <items>
                         <navigationItem title="Music" id="5">
@@ -45,15 +45,6 @@
                 </navigationBar>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" id="22"/>
-                <constraint firstItem="10" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="23"/>
-                <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" id="24"/>
-                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" id="25"/>
-                <constraint firstItem="10" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="26"/>
-                <constraint firstItem="10" firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="27"/>
-                <constraint firstItem="10" firstAttribute="top" secondItem="4" secondAttribute="bottom" id="28"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="351" y="530.5"/>
