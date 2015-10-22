@@ -78,7 +78,6 @@ to and manages user interaction.
 
 - (IBAction)	playOrPauseMusic:		(id) sender;
 - (IBAction)	AddMusicOrShowMusic:	(id) sender;
-- (IBAction)	playAppSound:			(id) sender;
 
 - (BOOL) useiPodPlayer;
 

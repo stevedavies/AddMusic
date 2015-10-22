@@ -14,7 +14,6 @@
 		0A735D630FACBAAC0057280A /* no_artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A735D610FACBAAC0057280A /* no_artwork.png */; };
 		0AA6AE310FB773F6008185AA /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6AE2B0FB773F6008185AA /* MainView.xib */; };
 		0AA6AE320FB773F6008185AA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6AE2D0FB773F6008185AA /* MainWindow.xib */; };
-		0AB904010FB4D1A5004C88C3 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0AB904000FB4D1A5004C88C3 /* sound.caf */; };
 		0AB9044B0FB4E0CB004C88C3 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0AB9044A0FB4E0CB004C88C3 /* ReadMe.txt */; };
 		0ADFA0840FABA7250020C909 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADFA0830FABA7250020C909 /* AudioToolbox.framework */; };
 		0ADFA09E0FABA9DF0020C909 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADFA09D0FABA9DF0020C909 /* AVFoundation.framework */; };
@@ -42,7 +41,6 @@
 		0A735D7A0FACBB490057280A /* AddMusic-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AddMusic-Info.plist"; sourceTree = "<group>"; };
 		0AA6AE2C0FB773F6008185AA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/MainView.xib; sourceTree = "<group>"; };
 		0AA6AE2E0FB773F6008185AA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		0AB904000FB4D1A5004C88C3 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sound.caf; path = Resources/sound.caf; sourceTree = "<group>"; };
 		0AB9044A0FB4E0CB004C88C3 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; wrapsLines = 1; };
 		0ADFA0830FABA7250020C909 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0ADFA09D0FABA9DF0020C909 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -141,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				0A735D610FACBAAC0057280A /* no_artwork.png */,
-				0AB904000FB4D1A5004C88C3 /* sound.caf */,
 				0AA6AE2D0FB773F6008185AA /* MainWindow.xib */,
 				0AA6AE2B0FB773F6008185AA /* MainView.xib */,
 				0A1C088F0FB78C0D00C7BA1B /* MusicTableView.xib */,
@@ -224,7 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A735D630FACBAAC0057280A /* no_artwork.png in Resources */,
-				0AB904010FB4D1A5004C88C3 /* sound.caf in Resources */,
 				F47AB8B11AF6F883000BC297 /* Default-568h@2x.png in Resources */,
 				0AB9044B0FB4E0CB004C88C3 /* ReadMe.txt in Resources */,
 				0AA6AE310FB773F6008185AA /* MainView.xib in Resources */,

@@ -533,12 +533,6 @@ void audioRouteChangeListenerCallback (
 
 #pragma mark Application playback control_________________
 
-- (IBAction) playAppSound: (id) sender {
-
-	[appSoundPlayer play];
-	playing = YES;
-	[appSoundButton setEnabled: NO];
-}
 
 // delegate method for the audio route change alert view; follows the protocol specified
 //	in the UIAlertViewDelegate protocol.
@@ -611,15 +605,6 @@ void audioRouteChangeListenerCallback (
 #endif
 
 - (void) setupApplicationAudio {
-	
-	// Gets the file system path to the sound to play.
-	NSString *soundFilePath = [[NSBundle mainBundle]	pathForResource:	@"sound"
-														ofType:				@"caf"];
-
-	// Converts the sound's file path to an NSURL object
-	NSURL *newURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-	self.soundFileURL = newURL;
-	[newURL release];
 
 	// Registers this class as the delegate of the audio session.
 	[[AVAudioSession sharedInstance] setDelegate: self];
@@ -628,17 +613,7 @@ void audioRouteChangeListenerCallback (
 	// audio. The category also indicates that application audio should stop playing 
 	// if the Ring/Siilent switch is set to "silent" or the screen locks.
 	[[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryAmbient error: nil];
-/*
-	// Use this code instead to allow the app sound to continue to play when the screen is locked.
-	[[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
 
-	UInt32 doSetProperty = 0;
-	AudioSessionSetProperty (
-		kAudioSessionProperty_OverrideCategoryMixWithOthers,
-		sizeof (doSetProperty),
-		&doSetProperty
-	);
-*/
 
 	// Registers the audio route change listener callback function
 	AudioSessionAddPropertyListener (
