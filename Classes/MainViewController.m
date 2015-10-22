@@ -16,6 +16,11 @@ to and manages user interaction.
  fix constraints
  fix window size problem after show queue
  delete play app sound
+ play entry when touched in list view
+ add stats to front page <<<<< see what the balance is between music and podcast entries
+ add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
+ modify make playlist to prefer partially played, add PP first then fill out with new
+ 
  */
 
 
