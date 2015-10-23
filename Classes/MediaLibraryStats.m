@@ -20,7 +20,7 @@
 @synthesize PlaylistsCount;
 @synthesize inTheCloudCount;
 
-- (void) CalculateStats{
+- (void) CalculateStats{ // library stats
     PlaylistsCount=0;
     ItemsCount=0;
     ItemsSkippedCount=0;

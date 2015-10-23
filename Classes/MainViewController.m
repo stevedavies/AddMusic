@@ -8,18 +8,20 @@ to and manages user interaction.
 
 /*
  >>>>>>>>>>>  TO DO  <<<<<<<<<<<
- check on skip count - not written by systemplayer
  create a %full progress bar - number of 0 play podcasts as a percentage of (0 play + songs)
  skip ovre podcasts with play count > 0 (may require handling events)
- change controls
+ 
+ change controls - now don't work
  move artwork
- fix constraints
 
  play entry when touched in list view
  
- add stats to front page <<<<< see what the balance is between music and podcast entries
  add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
+
+ 
+ add stats to front page <<<<< see what the balance is between music and podcast entries
+ add properties to MediaItemCollectionCreator for stats songs, casts, PP
  
  */
 
@@ -332,9 +334,9 @@ void audioRouteChangeListenerCallback (
     NSLog(@"SongsCount:%d",[CurrentStats SongsCount]);
     NSLog(@"PodcastsCount:%d",[CurrentStats PodcastsCount]);
     NSLog(@"PartiallyPlayedPodcastsCount:%d",[CurrentStats PartiallyPlayedPodcastsCount]);
-    songCountLabel=CurrentStats.SongsCount;
-    podcastCountLabel=CurrentStats.PodcastsCount;
-    partiallyPlayedCountLabel=CurrentStats.PartiallyPlayedPodcastsCount;
+    songCountLabel.text= [@"Songs: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.SongsCount]];
+    podcastCountLabel.text=[@"Casts: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PodcastsCount]];
+    partiallyPlayedCountLabel.text=[@"PP: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PartiallyPlayedPodcastsCount]];
 }
 
 
