@@ -22,11 +22,13 @@ to and manages user interaction.
 	IBOutlet UIBarButtonItem	*artworkItem;
 	IBOutlet UINavigationBar	*navigationBar;
 	IBOutlet UILabel			*nowPlayingLabel;
+	IBOutlet UILabel			*songCountLabel;
+	IBOutlet UILabel			*podcastCountLabel;
+	IBOutlet UILabel			*partiallyPlayedCountLabel;
 	BOOL						playedMusicOnce;
 
 	AVAudioPlayer				*appSoundPlayer;
 	NSURL						*soundFileURL;
-	IBOutlet UIButton			*appSoundButton;
 	IBOutlet UIButton			*addOrShowMusicButton;
     IBOutlet UIButton           *CreatePlaylistAndPlayButton;
     IBOutlet UIButton           *Minus30Button;
@@ -55,6 +57,9 @@ to and manages user interaction.
 @property (nonatomic, retain)	UIBarButtonItem			*artworkItem;
 @property (nonatomic, retain)	UINavigationBar			*navigationBar;
 @property (nonatomic, retain)	UILabel					*nowPlayingLabel;
+@property (nonatomic, retain)	UILabel					*songCountLabel;
+@property (nonatomic, retain)	UILabel					*podcastCountLabel;
+@property (nonatomic, retain)	UILabel					*partiallyPlayedCountLabel;
 @property (readwrite)			BOOL					playedMusicOnce;
 
 @property (nonatomic, retain)	UIBarButtonItem			*playBarButton;

@@ -49,6 +49,11 @@ to and manages user interaction.
                                         //		the button invokes a table view that shows the specified collection
                                         //new buttons
 @synthesize CreatePlaylistAndPlayButton;
+
+@synthesize songCountLabel;
+@synthesize podcastCountLabel;
+@synthesize partiallyPlayedCountLabel;
+
 @synthesize Plus30Button;
 @synthesize Minus30Button;
 @synthesize Plus10Button;
@@ -327,6 +332,9 @@ void audioRouteChangeListenerCallback (
     NSLog(@"SongsCount:%d",[CurrentStats SongsCount]);
     NSLog(@"PodcastsCount:%d",[CurrentStats PodcastsCount]);
     NSLog(@"PartiallyPlayedPodcastsCount:%d",[CurrentStats PartiallyPlayedPodcastsCount]);
+    songCountLabel=CurrentStats.SongsCount;
+    podcastCountLabel=CurrentStats.PodcastsCount;
+    partiallyPlayedCountLabel=CurrentStats.PartiallyPlayedPodcastsCount;
 }
 
 
@@ -566,7 +574,7 @@ void audioRouteChangeListenerCallback (
 		[appSoundPlayer play];
 	} else {
 		[appSoundPlayer setCurrentTime: 0];
-		[appSoundButton setEnabled: YES];
+
 	}
 	
 	[routeChangeAlertView release];			
@@ -579,7 +587,7 @@ void audioRouteChangeListenerCallback (
 - (void) audioPlayerDidFinishPlaying: (AVAudioPlayer *) appSoundPlayer successfully: (BOOL) flag {
 
 	playing = NO;
-	[appSoundButton setEnabled: YES];
+
 }
 
 - (void) audioPlayerBeginInterruption: player {
@@ -723,9 +731,6 @@ void audioRouteChangeListenerCallback (
 																				 action: @selector (playOrPauseMusic:)]];
 
 	[addOrShowMusicButton	setTitle: NSLocalizedString (@"Show Queue", @"Title for 'Add Music' button, before user has chosen some music")
-							forState: UIControlStateNormal];
-
-	[appSoundButton			setTitle: NSLocalizedString (@"Play App Sound", @"Title for 'Play App Sound' button")
 							forState: UIControlStateNormal];
 
 	[nowPlayingLabel setText: NSLocalizedString (@"Instructions", @"Brief instructions to user, shown at launch")];
