@@ -8,15 +8,15 @@ to and manages user interaction.
 
 /*
  >>>>>>>>>>>  TO DO  <<<<<<<<<<<
- check on skip count
+ check on skip count - not written by systemplayer
  create a %full progress bar - number of 0 play podcasts as a percentage of (0 play + songs)
  skip ovre podcasts with play count > 0 (may require handling events)
  change controls
  move artwork
  fix constraints
- fix window size problem after show queue
- delete play app sound
+
  play entry when touched in list view
+ 
  add stats to front page <<<<< see what the balance is between music and podcast entries
  add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
@@ -44,7 +44,6 @@ to and manages user interaction.
 @synthesize backgroundColorTimer;		// a timer for changing the background color -- represents an application that is
                                         //		doing something else while iPod music is playing
 @synthesize nowPlayingLabel;			// descriptive text shown on the main screen about the now-playing media item
-@synthesize appSoundButton;				// the button to invoke playback for the application sound
 @synthesize addOrShowMusicButton;		// the button for invoking the media item picker. if the user has already
                                         //		specified a media item collection, the title changes to "Show Music" and
                                         //		the button invokes a table view that shows the specified collection
@@ -52,6 +51,10 @@ to and manages user interaction.
 @synthesize CreatePlaylistAndPlayButton;
 @synthesize Plus30Button;
 @synthesize Minus30Button;
+@synthesize Plus10Button;
+@synthesize Minus10Button;
+@synthesize Plus60Button;
+@synthesize Minus60Button;
 @synthesize MoveZeroButton;
 @synthesize StatsButton;
 @synthesize ClearPartiallyPlayedButton;
@@ -251,33 +254,54 @@ void audioRouteChangeListenerCallback (
     [Temp SetToEnd:ByTitlePlayedList] ;
     ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Winners and Losers" Album:@"Taking Stock"];
     [Temp SetToEnd:ByTitlePlayedList] ;
-
 }
 
-// move playback position back 30 seconds
+// move to previous item
 - (IBAction) PP: (id) sender {
     [musicPlayer skipToPreviousItem];
     NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
-// move playback position back 30 seconds
+// move to next item
 - (IBAction) NN: (id) sender {
     [musicPlayer skipToNextItem];
     NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
+// move playback position back 60 seconds
+- (IBAction) Minus60Button: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-60)];
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+}
+
+// move playback position forward 60 seconds
+- (IBAction) Plus60Button: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+60)];
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+}
 // move playback position back 30 seconds
-- (IBAction) Minus30sec: (id) sender {
+- (IBAction) Minus30Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-30)];
     NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
 // move playback position forward 30 seconds
-- (IBAction) Plus30sec: (id) sender {
+- (IBAction) Plus30Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+30)];
     NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
 }
 
+// move playback position forward 10 seconds
+- (IBAction) Plus10Button: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+10)];
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+}
+
+// move playback position back 10 seconds
+- (IBAction) Minus10Button: (id) sender {
+    [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-10)];
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+}
 // move playback position to beginning
 - (IBAction) MoveZero: (id) sender {
     [musicPlayer setCurrentPlaybackTime:(0)];

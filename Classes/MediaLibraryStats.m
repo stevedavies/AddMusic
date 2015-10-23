@@ -12,23 +12,28 @@
 @implementation MediaLibraryStats
 
 @synthesize ItemsCount;
+@synthesize ItemsSkippedCount;
 @synthesize SongsCount;
 @synthesize PodcastsCount;
+@synthesize PodcastsSkippedCount;
 @synthesize PartiallyPlayedPodcastsCount;
 @synthesize PlaylistsCount;
+@synthesize inTheCloudCount;
 
 - (void) CalculateStats{
     PlaylistsCount=0;
     ItemsCount=0;
+    ItemsSkippedCount=0;
+    PodcastsSkippedCount=0;
     SongsCount = 0;
     PodcastsCount =0;
     PartiallyPlayedPodcastsCount=0;
+    inTheCloudCount=0;
     MPMediaQuery *everything = [[MPMediaQuery alloc] init];
     
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
     NSArray *itemsFromGenericQuery = [everything items];
     printf("%s", [[NSString stringWithFormat:@"\n\nLooking at entire library..."] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\n\nTypeValue 2, Partially Played:"] UTF8String]);
     for (MPMediaItem *item in itemsFromGenericQuery) {
         ItemsCount++;
         
@@ -37,28 +42,46 @@
         NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
         double PlaybackDuration = [[item valueForProperty:MPMediaItemPropertyPlaybackDuration]doubleValue];
         NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
+        NSString *itemSkipCount = [item valueForProperty:MPMediaItemPropertySkipCount];
         NSString *itemType = [item valueForProperty:MPMediaItemPropertyMediaType];
         double BookmarkValue = [[item valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
+        NSString *IsCloudItem = [item valueForProperty:MPMediaItemPropertyIsCloudItem];
+        
+        if ([itemSkipCount intValue] > 0){
+            ItemsSkippedCount++;
+        }
         
         if (TypeValue == 1){
             SongsCount++;
         }
         
+        if ([IsCloudItem intValue] == 1){
+            inTheCloudCount++;
+        }
+        
         if (TypeValue == 2) {
             PodcastsCount++;
+            if ([itemSkipCount intValue] > 0){
+                PodcastsSkippedCount++;
+            }
             if  (BookmarkValue>0){
-                printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+                printf("%s", [[NSString stringWithFormat:@"\nPP Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 // ADD itme to MutableArray here
                 [PlaylistItems addObject:item];
                 PartiallyPlayedPodcastsCount++;
             }
-        };
+        }
+        if(TypeValue != 1 && TypeValue != 2){
+            printf("%s", [[NSString stringWithFormat:@"\n!!!! Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@ Cloud:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount,IsCloudItem] UTF8String]);
+        }
     }
     
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",ItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of songs: %d",SongsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of Podcasts: %d",PodcastsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", PartiallyPlayedPodcastsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nSkipped podcasts: %d", PodcastsSkippedCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nCloud items: %d", inTheCloudCount] UTF8String]);
     
     // enumerate playlists
     MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];

@@ -31,6 +31,10 @@ to and manages user interaction.
     IBOutlet UIButton           *CreatePlaylistAndPlayButton;
     IBOutlet UIButton           *Minus30Button;
     IBOutlet UIButton           *Plus30Button;
+    IBOutlet UIButton           *Minus10Button;
+    IBOutlet UIButton           *Plus10Button;
+    IBOutlet UIButton           *Minus60Button;
+    IBOutlet UIButton           *Plus60Button;
     IBOutlet UIButton           *MoveZeroButton;
     IBOutlet UIButton           *StatsButton;
     IBOutlet UIButton           *nnButton;
@@ -62,11 +66,14 @@ to and manages user interaction.
 
 @property (nonatomic, retain)	AVAudioPlayer			*appSoundPlayer;
 @property (nonatomic, retain)	NSURL					*soundFileURL;
-@property (nonatomic, retain)	IBOutlet UIButton		*appSoundButton;
 @property (nonatomic, retain)	IBOutlet UIButton		*addOrShowMusicButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *CreatePlaylistAndPlayButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *Minus30Button;
 @property (nonatomic, retain)   IBOutlet UIButton       *Plus30Button;
+@property (nonatomic, retain)   IBOutlet UIButton       *Minus60Button;
+@property (nonatomic, retain)   IBOutlet UIButton       *Plus60Button;
+@property (nonatomic, retain)   IBOutlet UIButton       *Minus10Button;
+@property (nonatomic, retain)   IBOutlet UIButton       *Plus10Button;
 @property (nonatomic, retain)   IBOutlet UIButton       *MoveZeroButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *StatsButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *nnButton;
