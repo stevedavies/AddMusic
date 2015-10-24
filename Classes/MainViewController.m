@@ -10,8 +10,6 @@ to and manages user interaction.
  >>>>>>>>>>>  TO DO  <<<<<<<<<<<
  create a %full progress bar - number of 0 play podcasts as a percentage of (0 play + songs)
  skip ovre podcasts with play count > 0 (may require handling events)
- 
- change controls - now don't work
  move artwork
 
  play entry when touched in list view
@@ -19,12 +17,7 @@ to and manages user interaction.
  add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
 
- 
- add stats to front page <<<<< see what the balance is between music and podcast entries
- add properties to MediaItemCollectionCreator for stats songs, casts, PP
- 
- create MediaItemCollectionStats object to calculate and store PL stats
- 
+ set position to 0 if position <= 5 ; reset to beginning
  */
 
 

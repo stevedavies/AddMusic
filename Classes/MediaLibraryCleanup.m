@@ -39,12 +39,10 @@
         NSString *albumTitle =
         [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
         
-        
         NSArray *songs = [album items];
         printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %lu", albumTitle, (unsigned long)[songs count]] UTF8String]);
         
         // print each episode
-        
         for (MPMediaItem *song in songs) {
             NSString *songTitle =[song valueForProperty: MPMediaItemPropertyTitle];
             NSString *itemAlbumTitle = [song valueForProperty:MPMediaItemPropertyAlbumTitle];
@@ -71,9 +69,6 @@
     else {
         PartiallyPlayedList=[MPMediaItemCollection alloc];
     }
-    ////
-    // ? move code here to iterate and set position ?
-    ////
     return PartiallyPlayedList;
 }
 
@@ -148,9 +143,6 @@
     else{
         ClearByTitleList=nil;
     }
-        ////
-        // ? move code here to iterate and set position ?
-        ////
         return ClearByTitleList;
 }
 

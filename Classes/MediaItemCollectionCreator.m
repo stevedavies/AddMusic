@@ -58,9 +58,8 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     NSArray *sortedArray;
     sortedArray = [itemsFromGenericQuery sortedArrayUsingDescriptors:sortDescriptors];
     
-    
+    // add only partially played podcast items first
     for (MPMediaItem *item in sortedArray) {
-        
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
         NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
         double BookmarkValue = [itemBookmarkTime doubleValue];
@@ -72,13 +71,34 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
         //NSString*itemDescription = [item valueForProperty:MPMediaItemPropertyDescription];
         
-        if(TypeValue == 2 & BookmarkValue >= 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0) {
+        if(TypeValue == 2 & BookmarkValue > 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@ Release:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount,ReleaseDate] UTF8String]);
             [PlaylistItems addObject:item];
             PlaylistItemsCount++;
         };
         PodcastQueryItemsCount++;
     }
+    // now add only un-played podcast items first
+    for (MPMediaItem *item in sortedArray) {
+        NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
+        NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
+        double BookmarkValue = [itemBookmarkTime doubleValue];
+        NSString *itemPlaybackDuration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+        NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
+        NSString *itemType = [item valueForProperty:MPMediaItemPropertyMediaType];
+        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
+        NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
+        //NSString*itemDescription = [item valueForProperty:MPMediaItemPropertyDescription];
+        
+        if(TypeValue == 2 & BookmarkValue == 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0) {
+            printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@ Release:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount,ReleaseDate] UTF8String]);
+            [PlaylistItems addObject:item];
+            PlaylistItemsCount++;
+        };
+        PodcastQueryItemsCount++;
+    }
+    
     printf("%s", [[NSString stringWithFormat:@"Playlists Count: %d", PlaylistsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items matching query: %d",PodcastQueryItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nPartially Palyed podcasts: %d", partiallyPlayedCount] UTF8String]);
