@@ -360,9 +360,9 @@ void audioRouteChangeListenerCallback (
     NSLog(@"SongsCount:%d",[CurrentStats SongsCount]);
     NSLog(@"PodcastsCount:%d",[CurrentStats PodcastsCount]);
     NSLog(@"PartiallyPlayedPodcastsCount:%d",[CurrentStats PartiallyPlayedPodcastsCount]);
-    PLsongCountLabel.text= [@"Songs: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.SongsCount]];
-    PLpodcastCountLabel.text=[@"Casts: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PodcastsCount]];
-    PLpartiallyPlayedCountLabel.text=[@"PP: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PartiallyPlayedPodcastsCount]];
+    PLsongCountLabel.text= [@"PL Songs: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.SongsCount]];
+    PLpodcastCountLabel.text=[@"PL Casts: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PodcastsCount]];
+    PLpartiallyPlayedCountLabel.text=[@"PL PP: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PartiallyPlayedPodcastsCount]];
 }
 
 
