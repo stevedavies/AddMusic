@@ -58,6 +58,10 @@ to and manages user interaction.
 @synthesize podcastCountLabel;
 @synthesize partiallyPlayedCountLabel;
 
+@synthesize PLsongCountLabel;
+@synthesize PLpodcastCountLabel;
+@synthesize PLpartiallyPlayedCountLabel;
+
 @synthesize Plus30Button;
 @synthesize Minus30Button;
 @synthesize Plus10Button;
