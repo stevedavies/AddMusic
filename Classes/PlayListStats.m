@@ -1,15 +1,15 @@
 //
-//  MediaLibraryStats.m
+//  PlayListStats.m
 //  AddMusic
 //
-//  Created by Steve Davies on 2/26/15.
+//  Created by Steve Davies on 10/24/15.
 //
 //
 
-#import "MediaLibraryStats.h"
+#import "PlayListStats.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@implementation MediaLibraryStats
+@implementation PlayListStats
 
 @synthesize ItemsCount;
 @synthesize ItemsSkippedCount;
@@ -20,7 +20,7 @@
 @synthesize PlaylistsCount;
 @synthesize inTheCloudCount;
 
-- (void) CalculateStats{ // library stats
+- (void) CalculateStats: (MPMediaItemCollection*) PlayList{ // PlayList stats
     PlaylistsCount=0;
     ItemsCount=0;
     ItemsSkippedCount=0;
@@ -29,11 +29,13 @@
     PodcastsCount =0;
     PartiallyPlayedPodcastsCount=0;
     inTheCloudCount=0;
-    MPMediaQuery *everything = [[MPMediaQuery alloc] init];
+    
+    //MPMediaQuery *everything = [[MPMediaQuery alloc] init];
     
     NSMutableArray *PartiallyPlayedPodcastItems= [[NSMutableArray alloc] init];
-    NSArray *itemsFromGenericQuery = [everything items];
-    printf("%s", [[NSString stringWithFormat:@"\n\nLooking at entire library..."] UTF8String]);
+    NSArray *itemsFromGenericQuery = [PlayList items];
+    
+    printf("%s", [[NSString stringWithFormat:@"\n\nLooking PlayList..."] UTF8String]);
     for (MPMediaItem *item in itemsFromGenericQuery) {
         ItemsCount++;
         
@@ -95,19 +97,19 @@
         printf("%s", [[NSString stringWithFormat:@"\n%@, Songs:%d",[playlist name],(int)[songslist count]] UTF8String]);
         // enumerates each item
         /*for (MPMediaItem *song in songslist)
-        {
-            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
-            NSLog (@"\t\t%@", songTitle);
-            //NSLog (@"\t\t\t%@", [song valueForProperty: MPMediaItemPropertyPersistentID]);
-        }*/
+         {
+         NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+         NSLog (@"\t\t%@", songTitle);
+         //NSLog (@"\t\t\t%@", [song valueForProperty: MPMediaItemPropertyPersistentID]);
+         }*/
     }
     printf("%s", [[NSString stringWithFormat:@"\nPlaylists Count: %d", PlaylistsCount] UTF8String]);
     
-
+    
     
     //custom query that is an album query filtered for podcasts <<<<<<<------
     // Duplicates ---->>>> MPMediaQuery *myPodcastsQuery = [MPMediaQuery podcastsQuery]; with extra controls
-
+    
     ////////////////////////////////
     printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaQuery:"] UTF8String]);
     MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
@@ -121,8 +123,8 @@
     [myPodcastsQuery addFilterPredicate: [MPMediaPropertyPredicate
                                           predicateWithValue: @"EconTalk"
                                           forProperty: MPMediaItemPropertyAlbumTitle
-                                        comparisonType: MPMediaPredicateComparisonContains]];
-
+                                          comparisonType: MPMediaPredicateComparisonContains]];
+    
     //Alternate method - create predicates, add to set....
     //NSPredicate *typePredicate = [NSPredicate predicateWithFormat:@"title == %d", 2];  // filter for podcasts, type is 2
     
@@ -142,11 +144,11 @@
         printf("%s", [[NSString stringWithFormat:@"\nPodcast: %@ - ItemCount: %lu", albumTitle, (unsigned long)[songs count]] UTF8String]);
         /*
          // print each episode
-        for (MPMediaItem *song in songs) {
-            NSString *songTitle =
-            [song valueForProperty: MPMediaItemPropertyTitle];
-            printf("%s", [[NSString stringWithFormat:@"\n   Episode: %@", songTitle] UTF8String]);
-        }
+         for (MPMediaItem *song in songs) {
+         NSString *songTitle =
+         [song valueForProperty: MPMediaItemPropertyTitle];
+         printf("%s", [[NSString stringWithFormat:@"\n   Episode: %@", songTitle] UTF8String]);
+         }
          */
     }
     printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
@@ -154,4 +156,5 @@
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     ////////////////////////////////
 }
+
 @end

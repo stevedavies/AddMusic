@@ -10,14 +10,18 @@
                 <outlet property="ClearByTitleButton" destination="90" id="92"/>
                 <outlet property="ClearPartiallyPlayedButton" destination="87" id="88"/>
                 <outlet property="CreatePlaylistAndPlayButton" destination="59" id="61"/>
+                <outlet property="LibStatsButton" destination="79" id="4HB-Eo-6Hl"/>
                 <outlet property="Minus10Button" destination="72" id="gig-pN-gno"/>
                 <outlet property="Minus30Button" destination="67" id="75"/>
                 <outlet property="Minus60Button" destination="65" id="ZtS-7v-ufm"/>
                 <outlet property="MoveZeroButton" destination="70" id="73"/>
+                <outlet property="PLStatsButton" destination="lEB-gb-JAS" id="SND-0J-FYI"/>
+                <outlet property="PLpartiallyPlayedCountLabel" destination="pRM-Gf-zzo" id="ibD-tC-Iay"/>
+                <outlet property="PLpodcastCountLabel" destination="n9W-yQ-AnM" id="SrM-aQ-qTF"/>
+                <outlet property="PLsongCountLabel" destination="tQW-dU-mIH" id="Ask-mg-MA9"/>
                 <outlet property="Plus10Button" destination="Wkm-0L-dNt" id="fsn-Yd-nUr"/>
                 <outlet property="Plus30Button" destination="69" id="77"/>
                 <outlet property="Plus60Button" destination="66" id="65f-1p-NY1"/>
-                <outlet property="StatsButton" destination="79" id="81"/>
                 <outlet property="addOrShowMusicButton" destination="Bw9-Ep-at3" id="rC2-a9-hpR"/>
                 <outlet property="navigationBar" destination="4" id="19"/>
                 <outlet property="nnButton" destination="64" id="83"/>
@@ -61,9 +65,6 @@
                     <state key="normal" title="Beginning">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="MoveZero:" destination="-2" eventType="touchUpInside" id="74"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67">
                     <rect key="frame" x="67" y="297" width="30" height="30"/>
@@ -134,7 +135,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90">
                     <rect key="frame" x="15" y="148" width="114" height="30"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Clear by Title">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -143,13 +144,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79">
-                    <rect key="frame" x="194" y="95" width="64" height="24"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Stats">
+                    <rect key="frame" x="178" y="89" width="100" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Lib Stats">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="Stats:" destination="-2" eventType="touchUpInside" id="82"/>
+                        <action selector="LibStats:" destination="-2" eventType="touchUpInside" id="nbl-vQ-tFb"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69">
@@ -205,8 +206,8 @@
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87">
-                    <rect key="frame" x="189" y="148" width="75" height="30"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <rect key="frame" x="35" y="181" width="75" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Clear PP">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -261,6 +262,14 @@
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEB-gb-JAS">
+                    <rect key="frame" x="195" y="127" width="67" height="30"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="PL Stats"/>
+                    <connections>
+                        <action selector="PLStats:" destination="-1" eventType="touchUpInside" id="Ief-p3-umS"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

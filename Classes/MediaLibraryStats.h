@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface MediaLibraryStats : NSObject
 
 @property (nonatomic, readonly ) int PlaylistsCount;
@@ -21,7 +20,7 @@
 @property (nonatomic, readwrite) int PartiallyPlayedPodcastsCount;
 
 @property (nonatomic, readwrite) int inTheCloudCount;
--(void) CalculateStats;
+-(void) CalculateStats ;
 @end
 
 /*  For convenient reference: media item properties

@@ -33,10 +33,13 @@ to and manages user interaction.
 #import <Foundation/Foundation.h>
 #import "MediaItemCollectionCreator.h"
 #import "MediaLibraryStats.h"
+#import "PlayListStats.h"
 #import "MediaLibraryCleanup.h"
 #import "MediaPlayerWorker.h"
 
 @implementation MainViewController
+
+@synthesize CreatedPlayList;
 
 @synthesize artworkItem;				// the now-playing media item's artwork image, displayed in the Navigation bar
 @synthesize userMediaItemCollection;	// the media item collection created by the user, using the media item picker
@@ -69,7 +72,8 @@ to and manages user interaction.
 @synthesize Plus60Button;
 @synthesize Minus60Button;
 @synthesize MoveZeroButton;
-@synthesize StatsButton;
+@synthesize LibStatsButton;
+@synthesize PLStatsButton;
 @synthesize ClearPartiallyPlayedButton;
 @synthesize ppButton;
 @synthesize nnButton;
@@ -239,11 +243,13 @@ void audioRouteChangeListenerCallback (
                                               OrderBy:YES
                                           NumberToAdd:10];
     [MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
-    MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
+    //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
+    CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
+    
     //////////////////////
     //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
-    userMediaItemCollection = Playlist;
-    [musicPlayer setQueueWithItemCollection: Playlist];
+    userMediaItemCollection = CreatedPlayList;
+    [musicPlayer setQueueWithItemCollection: CreatedPlayList];
     [self setPlayedMusicOnce: YES];
     [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
     [musicPlayer play];
@@ -331,8 +337,8 @@ void audioRouteChangeListenerCallback (
     NSLog(@"Setting bookmark to END:%f",BookmarkValue);
 }
 
-// calculate stats
-- (IBAction) Stats: (id) sender {
+// calculate Library stats
+- (IBAction) LibStats: (id) sender {
     MediaLibraryStats *CurrentStats = [[MediaLibraryStats alloc] init];
     [CurrentStats CalculateStats];
     NSLog(@"PlaylistsCount:%d",[CurrentStats PlaylistsCount]);
@@ -343,6 +349,20 @@ void audioRouteChangeListenerCallback (
     songCountLabel.text= [@"Songs: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.SongsCount]];
     podcastCountLabel.text=[@"Casts: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PodcastsCount]];
     partiallyPlayedCountLabel.text=[@"PP: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PartiallyPlayedPodcastsCount]];
+}
+
+// calculate PlayList stats
+- (IBAction) PLStats: (id) sender {
+    PlayListStats *CurrentStats = [[PlayListStats alloc] init];
+    [CurrentStats CalculateStats: CreatedPlayList];
+    NSLog(@"PlaylistsCount:%d",[CurrentStats PlaylistsCount]);
+    NSLog(@"ItemsCount:%d",[CurrentStats ItemsCount]);
+    NSLog(@"SongsCount:%d",[CurrentStats SongsCount]);
+    NSLog(@"PodcastsCount:%d",[CurrentStats PodcastsCount]);
+    NSLog(@"PartiallyPlayedPodcastsCount:%d",[CurrentStats PartiallyPlayedPodcastsCount]);
+    PLsongCountLabel.text= [@"Songs: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.SongsCount]];
+    PLpodcastCountLabel.text=[@"Casts: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PodcastsCount]];
+    PLpartiallyPlayedCountLabel.text=[@"PP: " stringByAppendingString:[NSString stringWithFormat:@"%d",CurrentStats.PartiallyPlayedPodcastsCount]];
 }
 
 

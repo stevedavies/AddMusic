@@ -42,7 +42,8 @@ to and manages user interaction.
     IBOutlet UIButton           *Minus60Button;
     IBOutlet UIButton           *Plus60Button;
     IBOutlet UIButton           *MoveZeroButton;
-    IBOutlet UIButton           *StatsButton;
+    IBOutlet UIButton           *LibStatsButton;
+    IBOutlet UIButton           *PLStatsButton;
     IBOutlet UIButton           *nnButton;
     IBOutlet UIButton           *ppButton;
     IBOutlet UIButton           *ClearPartiallyPlayedButton;
@@ -57,6 +58,7 @@ to and manages user interaction.
 	UIImage						*noArtworkImage;
 	NSTimer						*backgroundColorTimer;
 }
+@property (nonatomic, retain)	MPMediaItemCollection   *CreatedPlayList;
 
 @property (nonatomic, retain)	UIBarButtonItem			*artworkItem;
 @property (nonatomic, retain)	UINavigationBar			*navigationBar;
@@ -90,7 +92,8 @@ to and manages user interaction.
 @property (nonatomic, retain)   IBOutlet UIButton       *Minus10Button;
 @property (nonatomic, retain)   IBOutlet UIButton       *Plus10Button;
 @property (nonatomic, retain)   IBOutlet UIButton       *MoveZeroButton;
-@property (nonatomic, retain)   IBOutlet UIButton       *StatsButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *LibStatsButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *PLStatsButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *nnButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ppButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ClearPartiallyPlayedButton;
