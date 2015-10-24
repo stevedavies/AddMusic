@@ -23,6 +23,8 @@ to and manages user interaction.
  add stats to front page <<<<< see what the balance is between music and podcast entries
  add properties to MediaItemCollectionCreator for stats songs, casts, PP
  
+ create MediaItemCollectionStats object to calculate and store PL stats
+ 
  */
 
 
@@ -278,41 +280,41 @@ void audioRouteChangeListenerCallback (
 // move playback position back 60 seconds
 - (IBAction) Minus60Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-60)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 
 // move playback position forward 60 seconds
 - (IBAction) Plus60Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+60)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 // move playback position back 30 seconds
 - (IBAction) Minus30Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-30)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 
 // move playback position forward 30 seconds
 - (IBAction) Plus30Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+30)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 
 // move playback position forward 10 seconds
 - (IBAction) Plus10Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]+10)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 
 // move playback position back 10 seconds
 - (IBAction) Minus10Button: (id) sender {
     [musicPlayer setCurrentPlaybackTime:([musicPlayer currentPlaybackTime]-10)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 // move playback position to beginning
 - (IBAction) MoveZero: (id) sender {
     [musicPlayer setCurrentPlaybackTime:(0)];
-    NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
+    NSLog(@"Index:%lu",(unsigned long)[musicPlayer currentPlaybackTime]);
 }
 
 // move playback position to END

@@ -15,9 +15,15 @@
 @property (nonatomic, readonly ) int ItemsCount;
 @property (nonatomic, readonly ) int ItemsSkippedCount;
 @property (nonatomic, readwrite) int SongsCount;
+
 @property (nonatomic, readwrite) int PodcastsCount;
 @property (nonatomic, readwrite) int PodcastsSkippedCount;
 @property (nonatomic, readwrite) int PartiallyPlayedPodcastsCount;
+
+@property (nonatomic, readwrite) int PLPodcastsCount;
+@property (nonatomic, readwrite) int PLPodcastsSkippedCount;
+@property (nonatomic, readwrite) int PLPartiallyPlayedPodcastsCount;
+
 @property (nonatomic, readwrite) int inTheCloudCount;
 -(void) CalculateStats;
 @end
