@@ -71,6 +71,7 @@ to and manages user interaction.
 @synthesize ppButton;
 @synthesize nnButton;
 @synthesize ClearByTitleButton;
+@synthesize ReZeroButton;
 
 @synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
 @synthesize soundFileURL;				// The path to the application sound
@@ -255,6 +256,13 @@ void audioRouteChangeListenerCallback (
     [Temp SetToEnd:PartiallyPlayedList];
     PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Taking Stock"];
     [Temp SetToEnd:PartiallyPlayedList];
+}
+
+// move playback position to beginnint for all barely Played (<10 sec)
+- (IBAction) ReZero: (id) sender {
+    MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
+    MPMediaItemCollection *ReZeroPlayedList=[MediaLibraryCleanup ReZero]; //<<<
+    [Temp ReZero:ReZeroPlayedList]; //<<<<
 }
 
 // move playback position to end for all with certain Title / Album

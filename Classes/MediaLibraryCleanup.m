@@ -11,6 +11,52 @@
 
 @implementation MediaLibraryCleanup
 
++ (MPMediaItemCollection*)ReZero{
+    int ItemsCount=0;
+    int PodcastsSkippedCount=0;
+    int PodcastsCount =0;
+    int ReZeroPodcastsCount=0;
+    MPMediaItemCollection* ReZeroPlayList;
+    
+    MPMediaQuery *everything = [[MPMediaQuery alloc] init];
+    
+    NSMutableArray *ReZeroPodcastItems= [[NSMutableArray alloc] init];
+    NSArray *itemsFromGenericQuery = [everything items];
+    printf("%s", [[NSString stringWithFormat:@"\n\nLooking at entire library..."] UTF8String]);
+    for (MPMediaItem *item in itemsFromGenericQuery) {
+        ItemsCount++;
+        
+        int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
+        NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
+        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        double PlaybackDuration = [[item valueForProperty:MPMediaItemPropertyPlaybackDuration]doubleValue];
+        NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
+        NSString *itemSkipCount = [item valueForProperty:MPMediaItemPropertySkipCount];
+        NSString *itemType = [item valueForProperty:MPMediaItemPropertyMediaType];
+        double BookmarkValue = [[item valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
+        
+        if (TypeValue == 2) {
+            PodcastsCount++;
+            if ([itemSkipCount intValue] > 0){
+                PodcastsSkippedCount++;
+            }
+            if  (BookmarkValue >0 && BookmarkValue <10 ){
+                // set back to zero
+                printf("%s", [[NSString stringWithFormat:@"\nReZero Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle,BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+                [ReZeroPodcastItems addObject:item];
+                ReZeroPodcastsCount++;
+            }
+        }
+    }
+    
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",ItemsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nNumber of Podcasts: %d",PodcastsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nReZeroPodcastsCount: Palyed podcasts: %d", ReZeroPodcastsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nSkipped podcasts: %d", PodcastsSkippedCount] UTF8String]);
+    
+    ReZeroPlayList=[[MPMediaItemCollection alloc] initWithItems:ReZeroPodcastItems];
+    return ReZeroPlayList;
+}
 
 + (MPMediaItemCollection*)ClearPartiallyPlayed: (NSString *)Album{
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];

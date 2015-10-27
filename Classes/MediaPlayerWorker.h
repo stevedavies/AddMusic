@@ -12,5 +12,5 @@
 @interface MediaPlayerWorker : NSObject
 @property (nonatomic, retain)	MPMusicPlayerController	*musicPlayer;
 -(void)SetToEnd: (MPMediaItemCollection *) PlayList;
--(void)ResetToBeginning: (MPMediaItemCollection *) PlayList;
+-(void)ReZero: (MPMediaItemCollection *) PlayList;
 @end

@@ -11,6 +11,36 @@
 @implementation MediaPlayerWorker
 @synthesize musicPlayer;
 
+- (void )ReZero: (MPMediaItemCollection *) PlayList{
+    
+    //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
+    [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
+    [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
+    [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
+    
+    [musicPlayer setQueueWithItemCollection: PlayList];
+    
+    // iterate through list and set playback to end-1
+    NSUInteger ct = [PlayList count];
+    for (int i = 0; i <= ct; i++){
+        MPMediaItem  *item =[musicPlayer nowPlayingItem];
+        
+        NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
+        NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
+        double BookmarkValue = [itemBookmarkTime doubleValue];
+        NSString *itemPlaybackDuration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+        double PlaybackDuration = [itemPlaybackDuration doubleValue];
+        NSString *itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
+        NSString *itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        int TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
+        printf("%s", [[NSString stringWithFormat:@"\n  ReZero-ing-> Type:%d Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",TypeValue, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+
+        [musicPlayer setCurrentPlaybackTime:0];
+        [musicPlayer skipToNextItem];
+
+    }
+}
+
 - (void )SetToEnd: (MPMediaItemCollection *) PlayList{
     
         //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
@@ -23,7 +53,7 @@
     
     // iterate through list and set playback to end-1
     NSUInteger ct = [PlayList count];
-    for (int i = 1; i <= ct; i++){
+    for (int i = 0; i <= ct; i++){
         MPMediaItem  *item =[musicPlayer nowPlayingItem];
         
         //NowPlayingInfoCenter
@@ -63,7 +93,7 @@
     
     // iterate through list and set playback to end-1
     NSUInteger ct = [PlayList count];
-    for (int i = 1; i <= ct; i++){
+    for (int i = 0; i <= ct; i++){
         MPMediaItem  *item =[musicPlayer nowPlayingItem];
         
         //NowPlayingInfoCenter

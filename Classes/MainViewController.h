@@ -48,6 +48,7 @@ to and manages user interaction.
     IBOutlet UIButton           *ppButton;
     IBOutlet UIButton           *ClearPartiallyPlayedButton;
     IBOutlet UIButton           *ClearByTitleButton;
+    IBOutlet UIButton           *ReZeroButton;
 	BOOL						interruptedOnPlayback;
 	BOOL						playing ;
 
@@ -56,7 +57,7 @@ to and manages user interaction.
 	MPMusicPlayerController		*musicPlayer;	
 	MPMediaItemCollection		*userMediaItemCollection;
 	UIImage						*noArtworkImage;
-	NSTimer						*backgroundColorTimer;
+
 }
 @property (nonatomic, retain)	MPMediaItemCollection   *CreatedPlayList;
 
@@ -97,6 +98,7 @@ to and manages user interaction.
 @property (nonatomic, retain)   IBOutlet UIButton       *nnButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ppButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ClearPartiallyPlayedButton;
+@property (nonatomic, retain)   IBOutlet UIButton       *ReZeroButton;
 @property (nonatomic, retain)   IBOutlet UIButton       *ClearByTitleButton;
 @property (readwrite)			BOOL					interruptedOnPlayback;
 @property (readwrite)			BOOL					playing;

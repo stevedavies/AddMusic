@@ -15,5 +15,6 @@
 
 + (MPMediaItemCollection*)ClearPartiallyPlayed:(NSString *) Album;
 + (MPMediaItemCollection*)ClearByTitle:(NSString *) Title Album:(NSString *)Album;
++ (MPMediaItemCollection*)ReZero;
 @end
 
