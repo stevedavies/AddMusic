@@ -241,8 +241,6 @@ void audioRouteChangeListenerCallback (
     //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     
-    //////////////////////
-    //TODO figure out how to get playlist into table <<<<<<<<<<<<-----------
     userMediaItemCollection = CreatedPlayList;
     [musicPlayer setQueueWithItemCollection: CreatedPlayList];
     [self setPlayedMusicOnce: YES];
@@ -255,6 +253,12 @@ void audioRouteChangeListenerCallback (
     [MediaItemCollectionCreator AddPartiallyPlayedToPlaylist:WorkingSet];
     //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
+    
+    userMediaItemCollection = CreatedPlayList;
+    [musicPlayer setQueueWithItemCollection: CreatedPlayList];
+    [self setPlayedMusicOnce: YES];
+    [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
+    [musicPlayer play];
 }
 
 // move playback position to end for all Partially Played

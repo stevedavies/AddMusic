@@ -32,7 +32,6 @@ NSString *const MPMediaItemPropertyBookmarkTime;
     int inTheCloudCount=0;
     MPMediaQuery *everything = [[MPMediaQuery alloc] init];
     
-    NSMutableArray *PartiallyPlayedPodcastItems= [[NSMutableArray alloc] init];
     NSArray *itemsFromGenericQuery = [everything items];
     printf("%s", [[NSString stringWithFormat:@"\n\nLooking at entire library..."] UTF8String]);
     for (MPMediaItem *item in itemsFromGenericQuery) {
@@ -58,13 +57,10 @@ NSString *const MPMediaItemPropertyBookmarkTime;
             }
             if  (BookmarkValue>0){
                 printf("%s", [[NSString stringWithFormat:@"\nPP Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
-                // ADD itme to MutableArray here
+                // ADD item to MutableArray here
                 [PlaylistItems addObject:item];
                 PartiallyPlayedPodcastsCount++;
             }
-        }
-        if(TypeValue != 1 && TypeValue != 2){
-            printf("%s", [[NSString stringWithFormat:@"\n!!!! Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@ Cloud:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount,IsCloudItem] UTF8String]);
         }
     }
     

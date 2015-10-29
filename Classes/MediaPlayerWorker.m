@@ -19,11 +19,14 @@
     [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
     
     [musicPlayer setQueueWithItemCollection: PlayList];
+    [musicPlayer play];
+    sleep(1);
+    [musicPlayer stop];
     
     // iterate through list and set playback to end-1
     NSUInteger ct = [PlayList count];
     for (int i = 0; i <= ct; i++){
-        MPMediaItem  *item =[musicPlayer nowPlayingItem];
+        MPMediaItem  *item =[musicPlayer nowPlayingItem];  // <<<<<<<<<< BUG - the first item here is always null
         
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
         NSString *itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
@@ -36,6 +39,7 @@
         printf("%s", [[NSString stringWithFormat:@"\n  ReZero-ing-> Type:%d Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",TypeValue, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
 
         [musicPlayer setCurrentPlaybackTime:0];
+        sleep(1);
         [musicPlayer skipToNextItem];
 
     }
