@@ -17,7 +17,7 @@ to and manages user interaction.
  add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
 
- set position to 0 if position <= 5 ; reset to beginning
+ reset to beginning - caused a bug - play / pause state not correct after ReZero
  */
 
 
@@ -72,6 +72,7 @@ to and manages user interaction.
 @synthesize nnButton;
 @synthesize ClearByTitleButton;
 @synthesize ReZeroButton;
+@synthesize PPPLButton;
 
 @synthesize appSoundPlayer;				// An AVAudioPlayer object for playing application sound
 @synthesize soundFileURL;				// The path to the application sound
@@ -172,67 +173,67 @@ void audioRouteChangeListenerCallback (
 	}
 }
 
-// create a playslit of partially played itmes and start playback
+// create a playslit of itmes and start playback
 - (IBAction) CreatePlaylistAndPlay: (id) sender {
     //////////////////////
     NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist:@"EconTalk"
+    [MediaItemCollectionCreator AddPodcastToPlaylist:@"EconTalk"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Accidental Tech"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Accidental Tech"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Advantage"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Bloomberg Advantage"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Cortex"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Cortex"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Economist"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Economist"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Intelligence Squared"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Intelligence Squared"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"ITV"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"ITV"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Living the RV Dream"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Living the RV Dream"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Planet Money"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Planet Money"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"TED Radio Hour"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"TED Radio Hour"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Surveillance"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Bloomberg Surveillance"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Taking Stock"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Taking Stock"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"Bloomberg Law"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Bloomberg Law"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"This American Life"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"This American Life"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastsToPlaylist: @"60 Minutes"
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"60 Minutes"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
@@ -247,6 +248,13 @@ void audioRouteChangeListenerCallback (
     [self setPlayedMusicOnce: YES];
     [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
     [musicPlayer play];
+}
+
+- (IBAction) CreatePPPalylist: (id) sender {
+    NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
+    [MediaItemCollectionCreator AddPartiallyPlayedToPlaylist:WorkingSet];
+    //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
+    CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
 }
 
 // move playback position to end for all Partially Played

@@ -11,7 +11,7 @@
 
 @interface MediaItemCollectionCreator : NSObject
 
-+ (void) AddPodcastsToPlaylist:(NSString*) Album
++ (void) AddPodcastToPlaylist:(NSString*) Album
                       Playlist:(NSMutableArray*) Playlist
                        OrderBy: (BOOL) Order
                    NumberToAdd: (NSInteger) NumberToAdd;
@@ -19,4 +19,6 @@
 
 + (void) AddMusicPlaylist:(NSString*) MusicPlaylistName
                  Playlist:(NSMutableArray*) Playlist;
+
++ (void) AddPartiallyPlayedToPlaylist:(NSMutableArray*) Playlist;
 @end
