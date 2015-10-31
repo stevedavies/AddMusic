@@ -14,7 +14,8 @@
 - (void )ReZero: (MPMediaItemCollection *) PlayList{
     
     //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
-    [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];  //<< use system music player ?
+    [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
+    //[self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]]; // LOOK was using system
     [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
     [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
     
@@ -25,7 +26,7 @@
     
     // iterate through list and set playback to end-1
     NSUInteger ct = [PlayList count];
-    for (int i = 0; i <= ct; i++){
+    for (int i = 0; i < ct; i++){
         MPMediaItem  *item =[musicPlayer nowPlayingItem];  // <<<<<<<<<< BUG - the first item here is always null
         
         NSString *itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
@@ -48,17 +49,18 @@
 
 - (void )SetToEnd: (MPMediaItemCollection *) PlayList{
     
-        //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
-        [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
-        [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
-        [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
-
+    //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
+    [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
+    //[self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]]; // LOOK was using system
+    [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
+    [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
+    
     [musicPlayer setQueueWithItemCollection: PlayList];
     [musicPlayer play];
     
     // iterate through list and set playback to end-1
     NSUInteger ct = [PlayList count];
-    for (int i = 0; i <= ct; i++){
+    for (int i = 0; i < ct; i++){
         MPMediaItem  *item =[musicPlayer nowPlayingItem];
         
         //NowPlayingInfoCenter

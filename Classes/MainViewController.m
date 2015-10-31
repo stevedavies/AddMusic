@@ -12,7 +12,10 @@ to and manages user interaction.
  skip ovre podcasts with play count > 0 (may require handling events)
  move artwork
 
- play entry when touched in list view
+ list view improvements - 
+    expand to multi line
+    add artwork
+    play entry when touched in list view
  
  add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
@@ -800,7 +803,7 @@ void audioRouteChangeListenerCallback (
 	} else {
         
         //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
-        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
+        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];  //<<<<<<<<<LOOK 
 		//[self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
 		
 		// By default, an application music player takes on the shuffle and repeat modes
