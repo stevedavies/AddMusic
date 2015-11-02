@@ -98,6 +98,9 @@ static NSString *kCellIdentifier = @"Cell";
 	
 		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault //was initWithFrame: CGRectZero
 									   reuseIdentifier: kCellIdentifier] autorelease];
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.textLabel.font= [UIFont systemFontOfSize:10.0];
 	}
 	
 	MainViewController *mainViewController = (MainViewController *) self.delegate;
