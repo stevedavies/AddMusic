@@ -109,17 +109,21 @@ static NSString *kCellIdentifier = @"Cell";
     NSString *itemText;
     NSDateComponentsFormatter *dcFormatter = [[NSDateComponentsFormatter alloc] init];
     NSString *duration;
-    int seconds;
+    NSString *position;
+    int durationSeconds;
+    double positionSeconds;
 	if (anItem) {
-        seconds =(int)[[anItem valueForProperty:MPMediaItemPropertyPlaybackDuration] floatValue];
+        durationSeconds =(int)[[anItem valueForProperty:MPMediaItemPropertyPlaybackDuration] floatValue];
+        positionSeconds =(double)[[anItem valueForProperty:MPMediaItemPropertyBookmarkTime] floatValue];
         dcFormatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
-        dcFormatter.allowedUnits = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+        dcFormatter.allowedUnits = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitNanosecond;
         dcFormatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
-        duration= [dcFormatter stringFromTimeInterval:seconds];
+        duration= [dcFormatter stringFromTimeInterval:durationSeconds];
+        position= [dcFormatter stringFromTimeInterval:positionSeconds];
 
-        itemText = [NSString stringWithFormat:@"[%@] %@ %@",
+        itemText = [NSString stringWithFormat:@"[%@] %@ | %@\n%@",
                     [anItem valueForProperty:MPMediaItemPropertyAlbumTitle],
-                    duration,
+                    duration,position,
                     [anItem valueForProperty:MPMediaItemPropertyTitle]];
 		cell.textLabel.text = itemText;  //<<<<<<<<------cell contents here
 	}
