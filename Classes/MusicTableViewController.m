@@ -138,6 +138,15 @@ static NSString *kCellIdentifier = @"Cell";
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 
 	[tableView deselectRowAtIndexPath: indexPath animated: YES];
+    
+   	MainViewController *mainViewController = (MainViewController *) self.delegate;
+    MPMediaItemCollection *currentQueue = mainViewController.userMediaItemCollection;
+    MPMediaItem *anItem = (MPMediaItem *)[currentQueue.items objectAtIndex: indexPath.row];
+    NSString *itemText;
+    itemText = [NSString stringWithFormat:@"[%@] %@",
+                [anItem valueForProperty:MPMediaItemPropertyAlbumTitle],
+                [anItem valueForProperty:MPMediaItemPropertyTitle]];
+    printf("%s", [[NSString stringWithFormat:@"\n  Did Select-> Item:%@",itemText] UTF8String]);
 }
 
 #pragma mark Application state management_____________

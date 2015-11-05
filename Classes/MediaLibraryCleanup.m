@@ -40,7 +40,7 @@
             if ([itemSkipCount intValue] > 0){
                 PodcastsSkippedCount++;
             }
-            if  (BookmarkValue >0 && BookmarkValue <10 ){
+            if  (BookmarkValue > 0 && BookmarkValue <= 20 ){
                 // set back to zero
                 printf("%s", [[NSString stringWithFormat:@"\nReZero Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle,BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 [ReZeroPodcastItems addObject:item];
