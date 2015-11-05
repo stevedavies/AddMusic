@@ -73,9 +73,9 @@
                 PartiallyPlayedPodcastsCount++;
             }
         }
-        if(TypeValue != 1 && TypeValue != 2){
-            printf("%s", [[NSString stringWithFormat:@"\n!!!! Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@ Cloud:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount,IsCloudItem] UTF8String]);
-        }
+        //if(TypeValue != 1 && TypeValue != 2){
+        //   printf("%s", [[NSString stringWithFormat:@"\n!!!! Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@ Cloud:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount,IsCloudItem] UTF8String]);
+        //}
     }
     
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",ItemsCount] UTF8String]);

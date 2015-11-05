@@ -261,34 +261,34 @@ void audioRouteChangeListenerCallback (
     [musicPlayer setQueueWithItemCollection: CreatedPlayList];
     [self setPlayedMusicOnce: YES];
     [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
-    [musicPlayer play];
+    //[musicPlayer play];
 }
 
-// move playback position to end for all Partially Played
+// move playback position to end for all Partially Played items in an album
 - (IBAction) ClearPartiallyPlayed: (id) sender {
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
     MPMediaItemCollection *PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Bloomberg"];
-    [Temp SetToEnd:PartiallyPlayedList];
+    [Temp SetToEnd:PartiallyPlayedList Player:musicPlayer];
     PartiallyPlayedList=[MediaLibraryCleanup ClearPartiallyPlayed:@"Taking Stock"];
-    [Temp SetToEnd:PartiallyPlayedList];
+    [Temp SetToEnd:PartiallyPlayedList Player:musicPlayer];
 }
 
 // move playback position to beginnint for all barely Played (<10 sec)
 - (IBAction) ReZero: (id) sender {
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
     MPMediaItemCollection *ReZeroPlayedList=[MediaLibraryCleanup ReZero]; //<<<
-    [Temp ReZero:ReZeroPlayedList]; //<<<<
+    [Temp ReZero:ReZeroPlayedList Player:musicPlayer]; //<<<<
 }
 
 // move playback position to end for all with certain Title / Album
 - (IBAction) ClearByTitle: (id) sender {
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
     MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Law Brief:" Album:@"Bloomberg Law"];
-    [Temp SetToEnd:ByTitlePlayedList] ;
+    [Temp SetToEnd:ByTitlePlayedList Player:musicPlayer] ;
     ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"QuickTake" Album:@"Bloomberg Advantage"];
-    [Temp SetToEnd:ByTitlePlayedList] ;
+    [Temp SetToEnd:ByTitlePlayedList Player:musicPlayer] ;
     ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Winners and Losers" Album:@"Taking Stock"];
-    [Temp SetToEnd:ByTitlePlayedList] ;
+    [Temp SetToEnd:ByTitlePlayedList Player:musicPlayer] ;
 }
 
 // move to previous item
