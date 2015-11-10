@@ -147,9 +147,25 @@ static NSString *kCellIdentifier = @"Cell";
                 [anItem valueForProperty:MPMediaItemPropertyAlbumTitle],
                 [anItem valueForProperty:MPMediaItemPropertyTitle]];
     printf("%s", [[NSString stringWithFormat:@"\n  Did Select-> Item:%@",itemText] UTF8String]);
+    
+// on row select, play 3 seconds of the item
+    MPMusicPlayerController* musicPlayer;
+    //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
+    //[self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];                         <<<<<< using passed in player
+    //[self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]]; // LOOK was using system
+    [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
+    [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
+    
+    NSMutableArray* Items = [[NSMutableArray alloc] init];
+    [Items addObject:anItem];
+    MPMediaItemCollection* Queue = [[MPMediaItemCollection alloc ]initWithItems:Items];
+    [musicPlayer setQueueWithItemCollection: Queue];
+    [musicPlayer play];
+    sleep(3);
+    [musicPlayer stop];
 }
 
-#pragma mark Application state management_____________
+#pragma mark Application state management____________
 // Standard methods for managing application state.
 - (void)didReceiveMemoryWarning {
 

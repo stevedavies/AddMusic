@@ -20,7 +20,9 @@ to and manages user interaction.
  add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
 
- reset to beginning - caused a bug - play / pause state not correct after ReZero
+ reset to beginning and clear partially played - have a problem with playing more thatn 1 sec of audio
+ 
+ // add ussic by artist similar to add podcast
  */
 
 

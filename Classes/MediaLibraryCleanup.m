@@ -96,7 +96,9 @@
             NSString *itemPlayCount = [song valueForProperty:MPMediaItemPropertyPlayCount];
             NSString *itemType = [song valueForProperty:MPMediaItemPropertyMediaType];
             double BookmarkValue = [[song valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
-            if  (BookmarkValue>0){
+            
+            // Partially Played threshold = 10 sec  <<<<<<<<<<<
+            if  (BookmarkValue> 10 ){
                 printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 //set song to played - can't do that here ...yet... pass playlist back to MainViewController
                 [PlaylistItems addObject:song];
