@@ -64,16 +64,11 @@
             if ([itemSkipCount intValue] > 0){
                 PodcastsSkippedCount++;
             }
-            if  (BookmarkValue>0){
-                if(BookmarkValue < 5 ) {
-                    // set back to zero
-                }
-                else{
-                    printf("%s", [[NSString stringWithFormat:@"\nPP Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
-                    // ADD itme to MutableArray here
-                    [PartiallyPlayedPodcastItems addObject:item];
-                    PartiallyPlayedPodcastsCount++;
-                }
+            if  (BookmarkValue > 15){
+                printf("%s", [[NSString stringWithFormat:@"\nPP Type:%@ Album:%@ Title:%@ Duration:%.0f PlayCount:%@ Bookmark:%0.0f",itemType, itemAlbumTitle, itemTitle,PlaybackDuration,itemPlayCount,BookmarkValue] UTF8String]);
+                // ADD itme to MutableArray here
+                [PartiallyPlayedPodcastItems addObject:item];
+                PartiallyPlayedPodcastsCount++;
             }
         }
         if(TypeValue != 1 && TypeValue != 2){

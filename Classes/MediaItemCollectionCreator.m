@@ -55,8 +55,8 @@ NSString *const MPMediaItemPropertyBookmarkTime;
             if ([itemSkipCount intValue] > 0){
                 PodcastsSkippedCount++;
             }
-            if  (BookmarkValue>0){
-                printf("%s", [[NSString stringWithFormat:@"\nPP Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+            if  (BookmarkValue > 15){
+                printf("%s", [[NSString stringWithFormat:@"\nPP Type:%@ Album:%@ Title:%@ Duration:%.0f PlayCount:%@ Bookmark:%0.0f",itemType, itemAlbumTitle, itemTitle,PlaybackDuration,itemPlayCount,BookmarkValue] UTF8String]);
                 // ADD item to MutableArray here
                 [PlaylistItems addObject:item];
                 PartiallyPlayedPodcastsCount++;
@@ -120,7 +120,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
         //NSString*itemDescription = [item valueForProperty:MPMediaItemPropertyDescription];
         
-        if(TypeValue == 2 & BookmarkValue > 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0) {
+        if(TypeValue == 2 & BookmarkValue > 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0 && [itemBookmarkTime intValue]>15) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@ Release:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount,ReleaseDate] UTF8String]);
             [PlaylistItems addObject:item];
             PlaylistItemsCount++;
@@ -140,7 +140,7 @@ NSString *const MPMediaItemPropertyBookmarkTime;
         NSDate *ReleaseDate = [item valueForProperty:MPMediaItemPropertyReleaseDate];
         //NSString*itemDescription = [item valueForProperty:MPMediaItemPropertyDescription];
         
-        if(TypeValue == 2 & BookmarkValue == 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0) {
+        if(TypeValue == 2 & BookmarkValue == 0 && PlaylistItemsCount < NumberToAdd && [itemPlayCount intValue] ==0 && [itemBookmarkTime intValue]>15) {
             printf("%s", [[NSString stringWithFormat:@"\nType:%@ Title:%@-%@ Bookmark:%@ Duration:%@ PlayCount:%@ Release:%@",itemType, itemAlbumTitle, itemTitle, itemBookmarkTime,itemPlaybackDuration,itemPlayCount,ReleaseDate] UTF8String]);
             [PlaylistItems addObject:item];
             PlaylistItemsCount++;

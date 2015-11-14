@@ -40,9 +40,9 @@
             if ([itemSkipCount intValue] > 0){
                 PodcastsSkippedCount++;
             }
-            if  (BookmarkValue > 0 && BookmarkValue <= 20 ){
+            if  (BookmarkValue > 0 && BookmarkValue <= 15 ){
                 // set back to zero
-                printf("%s", [[NSString stringWithFormat:@"\nReZero Type:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, itemTitle,BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+                printf("%s", [[NSString stringWithFormat:@"\nReZero Type:%@ Album:%@ Title:%@ Duration:%.0f PlayCount:%@ Bookmark:%0.0f",itemType, itemAlbumTitle, itemTitle,PlaybackDuration,itemPlayCount,BookmarkValue] UTF8String]);
                 [ReZeroPodcastItems addObject:item];
                 ReZeroPodcastsCount++;
             }
@@ -51,7 +51,7 @@
     
     printf("%s", [[NSString stringWithFormat:@"\nNumber of items: %d",ItemsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nNumber of Podcasts: %d",PodcastsCount] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nReZeroPodcastsCount: Palyed podcasts: %d", ReZeroPodcastsCount] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nReZeroPodcastsCount: %d", ReZeroPodcastsCount] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nSkipped podcasts: %d", PodcastsSkippedCount] UTF8String]);
     
     ReZeroPlayList=[[MPMediaItemCollection alloc] initWithItems:ReZeroPodcastItems];
@@ -97,8 +97,8 @@
             NSString *itemType = [song valueForProperty:MPMediaItemPropertyMediaType];
             double BookmarkValue = [[song valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
             
-            // Partially Played threshold = 10 sec  <<<<<<<<<<<
-            if  (BookmarkValue> 10 ){
+            // Partially Played threshold = 15 sec  <<<<<<<<<<<
+            if  (BookmarkValue > 15 ){
                 printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 //set song to played - can't do that here ...yet... pass playlist back to MainViewController
                 [PlaylistItems addObject:song];
@@ -172,7 +172,8 @@
                 NSString *itemPlayCount = [song valueForProperty:MPMediaItemPropertyPlayCount];
                 NSString *itemType = [song valueForProperty:MPMediaItemPropertyMediaType];
                 double BookmarkValue = [[song valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
-                if  (BookmarkValue>=0){
+                
+                if  ([itemPlayCount intValue] == 0){
                     printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                     //set song to played - can't do that here ...yet... pass playlist back to MainViewController
                     [PlaylistItems addObject:song];

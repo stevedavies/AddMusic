@@ -8,21 +8,20 @@ to and manages user interaction.
 
 /*
  >>>>>>>>>>>  TO DO  <<<<<<<<<<<
- create a %full progress bar - number of 0 play podcasts as a percentage of (0 play + songs)
- skip ovre podcasts with play count > 0 (may require handling events)
- move artwork
+ -create a %full progress bar - number of 0 play podcasts as a percentage of (0 play + songs)
+ -skip ovre podcasts with play count > 0 (may require handling events)
+ -move artwork
 
- list view improvements - 
-    expand to multi line
-    add artwork
-    play entry when touched in list view
+ -list view improvements : add artwork : play entry when touched in list view
  
- add page - grid for podcast stats - one row per podcast - Album, count, played, skipped, new
+ -add page : grid for podcast stats : one row per podcast - Album, count, played, skipped, new
  modify make playlist to prefer partially played, add PP first then fill out with new
-
- reset to beginning and clear partially played - have a problem with playing more thatn 1 sec of audio
  
- // add ussic by artist similar to add podcast
+ -add mussic by artist similar to add podcast
+
+ -debug rezero
+ -debug clear partially palyed
+ -debug clear by title
  */
 
 
