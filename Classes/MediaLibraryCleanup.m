@@ -40,7 +40,7 @@
             if ([itemSkipCount intValue] > 0){
                 PodcastsSkippedCount++;
             }
-            if  (BookmarkValue > 0 && BookmarkValue <= 15 ){
+            if  (BookmarkValue > 0 && BookmarkValue <= 15 && [itemPlayCount intValue] == 0){
                 // set back to zero
                 printf("%s", [[NSString stringWithFormat:@"\nReZero Type:%@ Album:%@ Title:%@ Duration:%.0f PlayCount:%@ Bookmark:%0.0f",itemType, itemAlbumTitle, itemTitle,PlaybackDuration,itemPlayCount,BookmarkValue] UTF8String]);
                 [ReZeroPodcastItems addObject:item];
@@ -98,7 +98,7 @@
             double BookmarkValue = [[song valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
             
             // Partially Played threshold = 15 sec  <<<<<<<<<<<
-            if  (BookmarkValue > 15 ){
+            if  (BookmarkValue > 15 && [itemPlayCount intValue] == 0){
                 printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                 //set song to played - can't do that here ...yet... pass playlist back to MainViewController
                 [PlaylistItems addObject:song];
@@ -111,13 +111,8 @@
     printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %lu", (unsigned long)[PlaylistItems count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     MPMediaItemCollection *PartiallyPlayedList;
-    if(PlaylistItems.count>0) {
-        PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
-    }
-    else {
-        PartiallyPlayedList=[MPMediaItemCollection alloc];
-    }
-    return PartiallyPlayedList;
+    PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
+    return PartiallyPlayedList;  // may have zero items
 }
 
 + (MPMediaItemCollection*)ClearByTitle: (NSString *) Title Album:(NSString *) Album{

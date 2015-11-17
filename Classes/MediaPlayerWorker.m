@@ -87,6 +87,7 @@
         [musicPlayer skipToNextItem];
         sleep(1); // look into nanosleep()
     }
+    [musicPlayer setRepeatMode: MPMusicShuffleModeSongs];
     [musicPlayer stop];
 }
 
