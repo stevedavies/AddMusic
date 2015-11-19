@@ -61,7 +61,7 @@
 + (MPMediaItemCollection*)ClearPartiallyPlayed: (NSString *)Album{
     NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
  
-    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaLibraryCleanup MediaQuery:"] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaLibraryCleanup MediaQuery: Clear Partially Played - %@",Album] UTF8String]);
     MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
     
     // see MediaLibraryStats.h for a list of media item properties
@@ -107,9 +107,9 @@
         }
     }
     printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %lu", [myPodcastsQuery.items count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %lu", (unsigned long)[PlaylistItems count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
+    
     MPMediaItemCollection *PartiallyPlayedList;
     PartiallyPlayedList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
     return PartiallyPlayedList;  // may have zero items
@@ -117,9 +117,8 @@
 
 + (MPMediaItemCollection*)ClearByTitle: (NSString *) Title Album:(NSString *) Album{
         NSMutableArray *PlaylistItems= [[NSMutableArray alloc] init];
-        MPMediaItemCollection *ClearByTitleList;
     
-        printf("%s", [[NSString stringWithFormat:@"\n\nFrom the current MediaLibraryCleanup MediaQuery:"] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\n\nClear by Title - %@ / %@",Album,Title] UTF8String]);
         MPMediaQuery *myPodcastsQuery = [[MPMediaQuery alloc] init];
         
         // see MediaLibraryStats.h for a list of media item properties
@@ -147,7 +146,7 @@
         NSArray *albums = [myPodcastsQuery collections];
         //NSArray *allItems = [myPodcastsQuery items]; // all items are also in this property
     if(albums != nil && albums.count!=0) {
-        printf("%s", [[NSString stringWithFormat:@"\nQuery returned:%lu",(unsigned long)albums.count] UTF8String]);
+        printf("%s", [[NSString stringWithFormat:@"\nAlbumCount:%lu",(unsigned long)albums.count] UTF8String]);
     for (MPMediaItemCollection *album in albums) {
             MPMediaItem *representativeItem = [album representativeItem];
             //representativeItem.album
@@ -177,17 +176,13 @@
             }
         }
     }
-        printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
-        printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %lu", [myPodcastsQuery.items count]] UTF8String]);
-        printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %lu", (unsigned long)[PlaylistItems count]] UTF8String]);
-        printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
-    if(PlaylistItems != nil && PlaylistItems.count!=0) {
+    printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nTotal Returned Count: %lu", (unsigned long)[PlaylistItems count]] UTF8String]);
+    printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
+    
+    MPMediaItemCollection *ClearByTitleList;
     ClearByTitleList=[[MPMediaItemCollection alloc] initWithItems:PlaylistItems];
-    }
-    else{
-        ClearByTitleList=nil;
-    }
-        return ClearByTitleList;
+    return ClearByTitleList;
 }
 
 @end

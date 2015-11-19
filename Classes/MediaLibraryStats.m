@@ -150,7 +150,6 @@
          */
     }
     printf("%s", [[NSString stringWithFormat:@"\nPodcast Titles Count: %lu", (unsigned long)[albums count]] UTF8String]);
-    printf("%s", [[NSString stringWithFormat:@"\nTotal Podcast Episodes Count: %lu", [myPodcastsQuery.items count]] UTF8String]);
     printf("%s", [[NSString stringWithFormat:@"\nStats query COMPLETE\n"] UTF8String]);
     ////////////////////////////////
 }

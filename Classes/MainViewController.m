@@ -284,7 +284,7 @@ void audioRouteChangeListenerCallback (
 // move playback position to end for all with certain Title / Album
 - (IBAction) ClearByTitle: (id) sender {
     MediaPlayerWorker *Temp= [[MediaPlayerWorker alloc] init] ;
-    MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Law Brief:" Album:@"Bloomberg Law"];
+    MPMediaItemCollection *ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"Brief:" Album:@"Bloomberg Law"];
     [Temp SetToEnd:ByTitlePlayedList Player:musicPlayer] ;
     ByTitlePlayedList=[MediaLibraryCleanup ClearByTitle:@"QuickTake" Album:@"Bloomberg Advantage"];
     [Temp SetToEnd:ByTitlePlayedList Player:musicPlayer] ;
