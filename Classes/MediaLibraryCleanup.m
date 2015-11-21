@@ -163,12 +163,14 @@
                 NSString *songTitle =[song valueForProperty: MPMediaItemPropertyTitle];
                 NSString *itemAlbumTitle = [song valueForProperty:MPMediaItemPropertyAlbumTitle];
                 double PlaybackDuration = [[song valueForProperty:MPMediaItemPropertyPlaybackDuration]doubleValue];
-                NSString *itemPlayCount = [song valueForProperty:MPMediaItemPropertyPlayCount];
-                NSString *itemType = [song valueForProperty:MPMediaItemPropertyMediaType];
+                int itemPlayCount = [song valueForProperty:MPMediaItemPropertyPlayCount];  //<<<<<<<<<<< using int here where string works everywhere else?
+                unsigned long itemType = [song valueForProperty:MPMediaItemPropertyMediaType];
                 double BookmarkValue = [[song valueForProperty:MPMediaItemPropertyBookmarkTime]doubleValue];
                 
-                if  ([itemPlayCount intValue] == 0){
-                    printf("%s", [[NSString stringWithFormat:@"\nType:%@ Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%@",itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+                printf("%s", [[NSString stringWithFormat:@"\nFOUND-->Type:%lu Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%i",(unsigned long)itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
+                
+                if  (itemPlayCount  == 3){
+                    printf("%s", [[NSString stringWithFormat:@"\nADDING-->Type:%lu Album:%@ Title:%@ Bookmark:%0.0f Duration:%.0f PlayCount:%i",(unsigned long)itemType, itemAlbumTitle, songTitle, BookmarkValue,PlaybackDuration,itemPlayCount] UTF8String]);
                     //set song to played - can't do that here ...yet... pass playlist back to MainViewController
                     [PlaylistItems addObject:song];
                     // create a new class for this

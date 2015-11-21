@@ -85,31 +85,11 @@
         double EndValue = [timevalue doubleValue];
         [musicPlayer setCurrentPlaybackTime:(EndValue)-2];
         
-        itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
-        itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
-        BookmarkValue = [itemBookmarkTime doubleValue];
-        itemPlaybackDuration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
-        PlaybackDuration = [itemPlaybackDuration doubleValue];
-        itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
-        itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
-        printf("%s", [[NSString stringWithFormat:@"\n  PROCESSING-> Type:%d Album:%@ Title:%@ Duration:%.0f PlayCount:%@ Bookmark:%0.0f",TypeValue, itemAlbumTitle, itemTitle,PlaybackDuration,itemPlayCount,BookmarkValue] UTF8String]);
-        
         // do not skipToNext on last item
         if(i+1 != ct){
         [musicPlayer skipToNextItem];
         }
         sleep(1); // look into nanosleep()
-        
-        itemTitle = [item valueForProperty: MPMediaItemPropertyTitle];
-        itemBookmarkTime = [item valueForProperty:MPMediaItemPropertyBookmarkTime];
-        BookmarkValue = [itemBookmarkTime doubleValue];
-        itemPlaybackDuration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
-        PlaybackDuration = [itemPlaybackDuration doubleValue];
-        itemPlayCount = [item valueForProperty:MPMediaItemPropertyPlayCount];
-        itemAlbumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        TypeValue = [[item valueForProperty:MPMediaItemPropertyMediaType] intValue];
-        printf("%s", [[NSString stringWithFormat:@"\n  DONE-> Type:%d Album:%@ Title:%@ Duration:%.0f PlayCount:%@ Bookmark:%0.0f",TypeValue, itemAlbumTitle, itemTitle,PlaybackDuration,itemPlayCount,BookmarkValue] UTF8String]);
     }
     [musicPlayer setRepeatMode: MPMusicShuffleModeSongs];
     [musicPlayer stop];
