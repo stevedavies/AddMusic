@@ -213,6 +213,10 @@ void audioRouteChangeListenerCallback (
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"RV Navigator"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
     [MediaItemCollectionCreator AddPodcastToPlaylist: @"Planet Money"
                                              Playlist:WorkingSet
                                               OrderBy:YES
@@ -241,6 +245,42 @@ void audioRouteChangeListenerCallback (
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"On Point"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"NPR Politics"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"The Top"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"From Scratch"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Guys We"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Documentaries"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"WSJ Opinion"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Invested"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"WEALTHSTEADING"
+                                            Playlist:WorkingSet
+                                             OrderBy:YES
+                                         NumberToAdd:10];
     [MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
     //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
