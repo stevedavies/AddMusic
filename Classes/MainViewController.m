@@ -180,7 +180,9 @@ void audioRouteChangeListenerCallback (
 // create a playslit of itmes and start playback
 - (IBAction) CreatePlaylistAndPlay: (id) sender {
     //////////////////////
+
     NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
+    if(TRUE){
     [MediaItemCollectionCreator AddPodcastToPlaylist:@"EconTalk"
                                              Playlist:WorkingSet
                                               OrderBy:YES
@@ -283,6 +285,14 @@ void audioRouteChangeListenerCallback (
                                          NumberToAdd:10];
     [MediaItemCollectionCreator AddMusicPlaylist: @"Ride Music 2" Playlist:WorkingSet];
     //MPMediaItemCollection *Playlist=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
+    }
+    else
+    {
+        [MediaItemCollectionCreator AddPodcastToPlaylist: @"This American Life"
+                                                Playlist:WorkingSet
+                                                 OrderBy:YES
+                                             NumberToAdd:10];
+    }
     CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     
     userMediaItemCollection = CreatedPlayList;
@@ -389,9 +399,10 @@ void audioRouteChangeListenerCallback (
     MPMediaItem  *item =[musicPlayer nowPlayingItem];
     NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
     double BookmarkValue = [timevalue doubleValue];
-    [musicPlayer setCurrentPlaybackTime:(BookmarkValue)];
+    [musicPlayer setCurrentPlaybackTime:(BookmarkValue)-2];
+    [musicPlayer play];
     NSLog(@"Index:%lu",(unsigned long)[musicPlayer indexOfNowPlayingItem]);
-    NSLog(@"Setting bookmark to END:%f",BookmarkValue);
+    NSLog(@"Setting bookmark to END:%f",BookmarkValue-2);
 }
 
 // calculate Library stats
@@ -826,8 +837,8 @@ void audioRouteChangeListenerCallback (
 	if ([self useiPodPlayer]) {
 	
 		//[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
-        //[self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
-        [self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
+        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];
+        //[self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
 		
 		if ([musicPlayer nowPlayingItem]) {
 		
@@ -844,7 +855,7 @@ void audioRouteChangeListenerCallback (
 	} else {
         
         //[self setMusicPlayer: [MPMusicPlayerController iPodMusicPlayer]];
-        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];  //<<<<<<<<<LOOK 
+        [self setMusicPlayer: [MPMusicPlayerController systemMusicPlayer]];  //<<<<<<<<<LOOK
 		//[self setMusicPlayer: [MPMusicPlayerController applicationMusicPlayer]];
 		
 		// By default, an application music player takes on the shuffle and repeat modes
