@@ -182,16 +182,12 @@ void audioRouteChangeListenerCallback (
     //////////////////////
 
     NSMutableArray *WorkingSet = [[NSMutableArray alloc] init];
-    if(TRUE){
+    if(FALSE){
     [MediaItemCollectionCreator AddPodcastToPlaylist:@"EconTalk"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
     [MediaItemCollectionCreator AddPodcastToPlaylist: @"Accidental Tech"
-                                             Playlist:WorkingSet
-                                              OrderBy:YES
-                                          NumberToAdd:10];
-    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Bloomberg Advantage"
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
@@ -231,6 +227,10 @@ void audioRouteChangeListenerCallback (
                                              Playlist:WorkingSet
                                               OrderBy:YES
                                           NumberToAdd:10];
+    [MediaItemCollectionCreator AddPodcastToPlaylist: @"Bloomberg Advantage"
+                                                Playlist:WorkingSet
+                                                 OrderBy:YES
+                                             NumberToAdd:10];
     [MediaItemCollectionCreator AddPodcastToPlaylist: @"Taking Stock"
                                              Playlist:WorkingSet
                                               OrderBy:YES
@@ -291,12 +291,15 @@ void audioRouteChangeListenerCallback (
         [MediaItemCollectionCreator AddPodcastToPlaylist: @"This American Life"
                                                 Playlist:WorkingSet
                                                  OrderBy:YES
-                                             NumberToAdd:10];
-    }
+                                             NumberToAdd:1];
+        [MediaItemCollectionCreator AddPodcastToPlaylist: @"Bloomberg Advantage"
+                                                Playlist:WorkingSet
+                                                 OrderBy:YES
+                                             NumberToAdd:1];    }
     CreatedPlayList=[[MPMediaItemCollection alloc] initWithItems:WorkingSet];
     
     userMediaItemCollection = CreatedPlayList;
-    [musicPlayer setQueueWithItemCollection: CreatedPlayList];
+    [musicPlayer setQueueWithItemCollection:(CreatedPlayList)];
     [self setPlayedMusicOnce: YES];
     [musicPlayer setShuffleMode:(MPMusicShuffleModeSongs)];
     [musicPlayer play];

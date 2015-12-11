@@ -84,6 +84,7 @@
         NSString *timevalue = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
         double EndValue = [timevalue doubleValue];
         [musicPlayer setCurrentPlaybackTime:(EndValue)-2];
+        //[musicPlayer setValue:(1) forKey:MPMediaItemPropertyPlayCount];
         
         // do not skipToNext on last item
         if(i+1 != ct){
